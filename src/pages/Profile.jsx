@@ -116,11 +116,11 @@ export default function Profile() {
                     key={badge.id} 
                     className={`flex flex-col items-center text-center p-3 rounded-lg border transition-all ${
                       isUnlocked 
-                        ? 'border-slate-100 bg-slate-50/60 shadow-xs' 
+                        ? 'border-slate-100 bg-slate-50/60 shadow-sm' 
                         : 'border-slate-50 bg-white/20 opacity-30 select-none'
                     }`}
                   >
-                    <div className="text-3.5xl p-2 select-none">{badge.emoji}</div>
+                    <div className="text-3xl p-2 select-none">{badge.emoji}</div>
                     <span className="text-[10px] font-bold text-slate-700 leading-tight mt-2 block break-words w-full">
                       {badge.nombre}
                     </span>

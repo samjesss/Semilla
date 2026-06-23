@@ -144,7 +144,7 @@ export default function ModuleDetail() {
         onClick={() => navigate('/modulos')}
         className="flex items-center gap-1.5 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors py-1"
       >
-        <ArrowLeft className="w-4.5 h-4.5" />
+        <ArrowLeft className="w-4 h-4" />
         Volver a la lista
       </button>
 
@@ -197,9 +197,9 @@ export default function ModuleDetail() {
                     <div className="flex items-center gap-3.5 min-w-0">
                       {/* Check de estado */}
                       {isRead ? (
-                        <CheckCircle2 className="w-5.5 h-5.5 text-primary-500 flex-shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0" />
                       ) : (
-                        <Circle className="w-5.5 h-5.5 text-slate-300 flex-shrink-0" />
+                        <Circle className="w-5 h-5 text-slate-300 flex-shrink-0" />
                       )}
 
                       <div className="min-w-0 text-left">
@@ -355,7 +355,7 @@ export default function ModuleDetail() {
                         <p className={isCorrect ? 'text-primary-600 font-bold' : 'text-rose-600 font-bold'}>
                           {isCorrect ? '✓ Correcto' : `✗ Tu respuesta: "${q.opciones[quizAnswers[idx]]}"`}
                         </p>
-                        <p className="text-slate-500 leading-relaxed italic bg-white/70 p-2 rounded-xl mt-1 border border-slate-100">
+                        <p className="text-slate-500 leading-relaxed italic bg-surface p-2 rounded-lg mt-1 border border-primary-100/40">
                           <strong>Explicación:</strong> {q.explicacion}
                         </p>
                       </div>

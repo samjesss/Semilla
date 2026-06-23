@@ -90,7 +90,7 @@ export default function Navigation() {
       <div className="hidden md:block w-64 flex-shrink-0" />
 
       {/* ─── BARRA DE NAVEGACIÓN MÓVIL (BOTTOM NAV) ─── */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-primary-100 px-2 py-1 flex justify-around items-center z-30 shadow-lg shadow-slate-900/5">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-primary-100 px-2 py-1.5 flex justify-around items-center z-30 shadow-lg shadow-slate-900/5">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = item.activePaths.some(path => location.pathname.startsWith(path));
@@ -99,14 +99,14 @@ export default function Navigation() {
               key={item.path}
               to={item.path}
               data-tour={item.tour}
-              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all duration-200 ${
+              className={`flex flex-1 max-w-28 flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-200 ${
                 isActive 
                   ? 'text-primary-700 scale-105 font-bold' 
                   : 'text-slate-500 hover:text-ink'
               }`}
             >
-              <Icon className="w-5.5 h-5.5 stroke-[2.25]" />
-              <span className="text-[10px] font-semibold">{item.name}</span>
+              <Icon className="w-5 h-5 stroke-[2.25]" />
+              <span className="text-[10px] font-semibold leading-none">{item.name}</span>
             </NavLink>
           );
         })}

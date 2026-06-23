@@ -68,7 +68,7 @@ export default function LessonDetail() {
         onClick={() => navigate(`/modulos/${moduloPadre.id}`)}
         className="flex items-center gap-1.5 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors py-1"
       >
-        <ArrowLeft className="w-4.5 h-4.5" />
+        <ArrowLeft className="w-4 h-4" />
         Volver al Módulo
       </button>
 
@@ -106,7 +106,7 @@ export default function LessonDetail() {
           {contenido.secciones && contenido.secciones.map((sec, sIdx) => (
             <div key={sIdx} className="space-y-3 pt-3 border-t border-slate-50 first:border-t-0 first:pt-0">
               <h3 className="font-black text-ink text-sm md:text-base tracking-tight flex items-center gap-2">
-                <BookOpen className="w-4.5 h-4.5 text-primary-700" />
+                <BookOpen className="w-4 h-4 text-primary-700" />
                 {sec.titulo}
               </h3>
               <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
@@ -127,7 +127,7 @@ export default function LessonDetail() {
 
               {/* Tablas Explicativas */}
               {sec.tabla && (
-                <div className="overflow-x-auto border border-primary-100 rounded-lg shadow-xs mt-3">
+                <div className="overflow-x-auto border border-primary-100 rounded-lg shadow-sm mt-3">
                   <table className="w-full text-left border-collapse text-xs md:text-sm">
                     <thead>
                       <tr className="bg-slate-50 text-slate-500 border-b border-slate-100">

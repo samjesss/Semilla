@@ -16,7 +16,7 @@ export default function ModuleGrid({ modules = [], title = "Módulos Educativos"
   return (
     <div className="space-y-3 md:space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm md:text-lg font-black text-slate-850 tracking-tight flex items-center gap-2">
+        <h3 className="text-sm md:text-lg font-black text-ink tracking-tight flex items-center gap-2">
           <BookOpen className="w-5 h-5 text-primary-600" />
           {title}
         </h3>
@@ -57,7 +57,7 @@ export default function ModuleGrid({ modules = [], title = "Módulos Educativos"
                     {modulo.emoji}
                   </span>
                   <div>
-                    <h4 className="font-black text-slate-850 text-sm md:text-base leading-snug line-clamp-1">
+                    <h4 className="font-black text-ink text-sm md:text-base leading-snug line-clamp-1">
                       {modulo.titulo}
                     </h4>
                     <p className="hidden sm:block text-slate-500 text-[11px] md:text-xs leading-normal line-clamp-2 mt-0.5">
@@ -71,7 +71,7 @@ export default function ModuleGrid({ modules = [], title = "Módulos Educativos"
               <div className="space-y-2 pt-2 border-t border-slate-50">
                 {isCompleted ? (
                   <div className="flex items-center gap-1.5 text-xs text-primary-600 font-bold">
-                    <Award className="w-4.5 h-4.5" />
+                    <Award className="w-4 h-4" />
                     <span>¡Módulo Completado! {modulo.badge?.emoji}</span>
                   </div>
                 ) : (

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
 import useUserStore from '../store/useUserStore';
 
 /**
@@ -19,8 +18,8 @@ export default function Landing() {
   }, [isOnboardingComplete, navigate]);
 
   return (
-    <div className="min-h-screen semilla-canvas flex items-center justify-center p-4">
-      <div className="max-w-3xl w-full text-center space-y-7 animate-fade-in-up">
+    <div className="min-h-dvh semilla-canvas flex items-center justify-center px-4 py-8">
+      <div className="max-w-3xl w-full text-center space-y-8 animate-fade-in-up">
         {/* Logotipo y Título */}
         <div className="space-y-3">
           <div className="inline-flex w-20 h-20 rounded-lg bg-accent-500 border border-accent-600 items-center justify-center text-4xl shadow-[0_6px_0_#8c5a10] animate-scale-bounce">
@@ -34,40 +33,40 @@ export default function Landing() {
           </p>
         </div>
 
-        {/* Tarjeta de Presentación */}
-        <Card className="p-5 md:p-8 space-y-5 border-primary-100" variant="glass">
+        {/* Presentación */}
+        <section className="space-y-5">
           <h2 className="text-2xl md:text-4xl font-black text-ink leading-tight">
             Recibí, separá, cuidá.
           </h2>
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-lg mx-auto">
             Una guía sencilla para convertir el sobrante de tus remesas en decisiones pequeñas y constantes.
           </p>
 
           {/* Características clave */}
-          <div className="grid grid-cols-3 gap-2 md:gap-4 pt-2 text-left">
-            <div className="p-3 bg-white/70 rounded-lg border border-primary-100">
-              <span className="text-xl block mb-2">📋</span>
+          <div className="grid grid-cols-3 gap-0 pt-2 text-left border-y border-primary-100/70 divide-x divide-primary-100/70">
+            <div className="p-3">
+              <span className="text-lg block mb-2">📋</span>
               <div>
                 <h4 className="font-extrabold text-ink text-[11px] md:text-xs">Diagnóstico</h4>
                 <p className="hidden sm:block text-[11px] text-slate-500">Pocas preguntas, una dirección clara.</p>
               </div>
             </div>
-            <div className="p-3 bg-white/70 rounded-lg border border-primary-100">
-              <span className="text-xl block mb-2">🧮</span>
+            <div className="p-3">
+              <span className="text-lg block mb-2">🧮</span>
               <div>
                 <h4 className="font-extrabold text-ink text-[11px] md:text-xs">Herramientas</h4>
                 <p className="hidden sm:block text-[11px] text-slate-500">Calculadoras listas para usar.</p>
               </div>
             </div>
-            <div className="p-3 bg-white/70 rounded-lg border border-primary-100">
-              <span className="text-xl block mb-2">📚</span>
+            <div className="p-3">
+              <span className="text-lg block mb-2">📚</span>
               <div>
                 <h4 className="font-extrabold text-ink text-[11px] md:text-xs">Aprendizaje</h4>
                 <p className="hidden sm:block text-[11px] text-slate-500">Conceptos sin saturarte.</p>
               </div>
             </div>
           </div>
-        </Card>
+        </section>
 
         {/* CTA Button */}
         <div className="space-y-4">

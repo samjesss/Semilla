@@ -91,7 +91,7 @@ export default function LoanCalc() {
 
           {/* Alerta del estado de la tasa */}
           <div className={`flex items-center gap-2.5 border p-2.5 rounded-xl text-xs font-semibold ${status.color}`}>
-            <StatusIcon className="w-4.5 h-4.5 flex-shrink-0" />
+            <StatusIcon className="w-4 h-4 flex-shrink-0" />
             <span>{status.label}</span>
           </div>
         </div>

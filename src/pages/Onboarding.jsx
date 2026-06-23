@@ -66,7 +66,7 @@ export default function Onboarding() {
   };
 
   return (
-    <div className="min-h-screen semilla-canvas flex flex-col p-4 md:p-8 justify-between">
+    <div className="min-h-dvh semilla-canvas flex flex-col p-4 md:p-8 justify-between overflow-x-hidden">
       {/* Header del Quiz */}
       <header className="max-w-2xl w-full mx-auto flex items-center justify-between py-2">
         <button

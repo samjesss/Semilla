@@ -69,7 +69,7 @@ export default function Dashboard() {
           <div
             data-tour="profile-card"
             onClick={() => navigate('/perfil')}
-            className="flex items-center gap-3 bg-white border border-primary-100/60 p-2 pr-3 rounded-lg shadow-paper cursor-pointer hover:border-primary-200 transition-shadow active:scale-98"
+            className="flex items-center gap-3 bg-white border border-primary-100/60 p-2 pr-3 rounded-lg shadow-paper cursor-pointer hover:border-primary-200 transition-shadow active:scale-95"
           >
             <div 
               className="w-10 h-10 rounded-lg flex items-center justify-center text-xl shadow-inner bg-accent-50 border border-accent-100"
@@ -104,7 +104,7 @@ export default function Dashboard() {
             />
 
             {secondaryRecommendations.length > 0 && (
-              <Card className="p-3 md:p-4 border border-primary-100/50 bg-white/90 space-y-3">
+              <Card className="p-3 md:p-4 border border-primary-100/50 bg-white space-y-3">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Después de eso</p>

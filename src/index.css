@@ -27,18 +27,6 @@
   position: relative;
 }
 
-.semilla-page::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(184, 95, 67, 0.08) 0 1px, transparent 1px 100%),
-    linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
-  background-size: 100% 100%, 100% 220px;
-  border-left: 0 solid transparent;
-}
-
 .semilla-rail {
   position: relative;
 }
@@ -143,6 +131,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* Glassmorphism utility */

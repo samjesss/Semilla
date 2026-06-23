@@ -117,7 +117,7 @@ export default function RecommendationCard({ recommendation, defaultExpanded = f
               <Button
                 variant="primary"
                 size="sm"
-                className="text-xs font-bold gap-1 shadow-xs rounded-lg"
+                className="text-xs font-bold gap-1 shadow-sm rounded-lg"
                 onClick={handleAction}
               >
                 {link_calculadora ? 'Usar Calculadora' : 'Ver Módulo'}
