@@ -1,0 +1,1076 @@
+
+\documentclass[12pt,letterpaper]{article}
+
+% Codificación, idioma y fuente
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+
+% Formato APA general: tamaño carta, márgenes de 1 pulgada e interlineado doble
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% Encabezado y numeración de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{15pt}
+
+% Tablas, figuras y enlaces
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{caption}
+\usepackage{hanging}
+\usepackage{xcolor}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black}
+\captionsetup{labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=false}
+
+% Estilo de encabezados compatible con APA 7 para trabajos estudiantiles
+\usepackage{titlesec}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}{\normalfont\bfseries\centering}{ }{0pt}{}
+\titleformat{\subsection}{\normalfont\bfseries}{ }{0pt}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\itshape}{ }{0pt}{}
+\titlespacing*{\section}{0pt}{1.2\baselineskip}{0.6\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.0\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.8\baselineskip}{0.4\baselineskip}
+
+% Macros para capturas de pantalla. Si el archivo no existe, aparece un recuadro editable.
+\newcommand{\capturaApp}[3]{%
+\begin{figure}[H]
+\centering
+\IfFileExists{#1}{%
+  \includegraphics[width=0.82\textwidth,height=0.58\textheight,keepaspectratio]{#1}%
+}{%
+  \fbox{\begin{minipage}[c][7.5cm][c]{0.82\textwidth}
+  \centering
+  \textbf{Espacio para captura de pantalla}\\[0.35cm]
+  Archivo esperado: \texttt{\detokenize{#1}}\\[0.25cm]
+  Coloque la imagen con este nombre en la carpeta \texttt{screenshots} para reemplazar este recuadro.
+  \end{minipage}}%
+}
+\caption{#2}
+\label{#3}
+\end{figure}
+}
+
+\newcommand{\capturaAnexo}[3]{%
+\begin{figure}[H]
+\centering
+\IfFileExists{#1}{%
+  \includegraphics[width=0.92\textwidth,height=0.70\textheight,keepaspectratio]{#1}%
+}{%
+  \fbox{\begin{minipage}[c][10cm][c]{0.92\textwidth}
+  \centering
+  \textbf{Anexo visual pendiente}\\[0.35cm]
+  Archivo esperado: \texttt{\detokenize{#1}}\\[0.25cm]
+  Sustituya este recuadro colocando la captura correspondiente en la carpeta \texttt{screenshots}.
+  \end{minipage}}%
+}
+\caption{#2}
+\label{#3}
+\end{figure}
+}
+
+\sloppy
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+\thispagestyle{fancy}
+\centering
+\vspace*{0.5in}
+
+{\bfseries Universidad Nacional de Ingeniería\par}
+\vspace{0.3cm}
+{\bfseries Ingeniería en Economía y Negocios\par}
+\vspace{1.3in}
+
+{\bfseries\Large Propuesta de herramienta de educación y planificación financiera para optimizar la distribución de remesas en las familias del sector Santa Cruz, Estelí, Nicaragua\par}
+\vspace{1.2in}
+
+{\bfseries Autores:}\par
+[Nombres de los integrantes]\par
+\vspace{0.5cm}
+
+{\bfseries Asignatura:}\par
+[Nombre de la asignatura]\par
+\vspace{0.5cm}
+
+{\bfseries Docente:}\par
+[Nombre del docente]\par
+\vfill
+
+Managua, Nicaragua\par
+Junio de 2026\par
+
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\clearpage
+\section{\texorpdfstring{\textbf{Introducción}}{Introducción}}\label{introducciuxf3n}
+
+Las remesas constituyen actualmente una de las principales fuentes de ingresos para la economía nicaragüense, representando aproximadamente el 26\% del consumo total a nivel nacional. Este flujo de capital es el resultado directo de la migración de la fuerza laboral hacia el extranjero, con una concentración significativa en Estados Unidos, desde donde los trabajadores envían periódicamente una fracción de sus ingresos para el sustento de sus familias en Nicaragua.
+
+Si bien esta inyección de liquidez ha sido fundamental para la subsistencia y la mitigación de la pobreza en una gran cantidad de hogares, existe una brecha importante en materia de educación financiera entre los beneficiarios. La tendencia generalizada es priorizar el consumo necesario a corto plazo; sin embargo, la falta de diversificación y la omisión de instrumentos de ahorro o inversión pueden generar una alta vulnerabilidad económica a largo plazo. Este intercambio entre el consumo presente y la seguridad futura se vuelve aún más crítico al considerar la volatilidad del entorno macroeconómico y las recientes políticas migratorias y económicas aplicadas por el gobierno estadounidense, las cuales podrían impactar la estabilidad de estos flujos de efectivo.
+
+En respuesta a esta problemática, el presente proyecto propone el diseño de una herramienta enfocada en la concientización y la gestión financiera. El objetivo es dotar a las familias receptoras de los conocimientos y recursos necesarios para estructurar presupuestos eficientes, fomentando la acumulación de capital y mejorando su resiliencia financiera a largo plazo.
+
+\newpage
+\section{\texorpdfstring{\textbf{Tema de investigación}}{Tema de investigación}}\label{tema-de-investigaciuxf3n}
+
+\subsection{\texorpdfstring{\textbf{Tema general}}{Tema general}}\label{tema-general}
+
+El impacto de la educación financiera en la gestión y optimización de las remesas familiares en Nicaragua.
+
+\subsection{\texorpdfstring{\textbf{Tema delimitado}}{Tema delimitado}}\label{tema-delimitado}
+
+Propuesta de una herramienta de educación y planificación financiera para optimizar la distribución de remesas, consumo frente a ahorro, en las familias del sector Santa Cruz, dentro de la comarca Santa Cruz, departamento de Estelí, Nicaragua.
+
+\newpage
+\section{\texorpdfstring{\textbf{Objetivos}}{Objetivos}}\label{objetivos}
+
+\section{\texorpdfstring{\textbf{Objetivo general}}{Objetivo general}}\label{objetivo-general}
+
+Diseñar una herramienta teórica y práctica de gestión financiera orientada a las familias del sector Santa Cruz, dentro de la comarca Santa Cruz, departamento de Estelí, Nicaragua, que permita optimizar el uso de las remesas mediante la transición de un modelo de consumo de corto plazo hacia uno que integre el ahorro y la estabilidad a largo plazo.
+
+\subsection{\texorpdfstring{\textbf{Objetivos específicos}}{Objetivos específicos}}\label{objetivos-especuxedficos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Analizar el comportamiento actual de gasto y la propensión al ahorro de las familias receptoras de remesas en la zona delimitada, identificando los principales rubros de consumo.
+\item
+  Evaluar el nivel de conocimiento financiero de los beneficiarios y su percepción de riesgo frente a posibles fluctuaciones en la recepción de remesas derivadas de factores externos, como las políticas extranjeras.
+\item
+  Desarrollar la estructura lógica de una herramienta que facilite la distribución porcentual óptima de los ingresos por remesas, ajustada a la realidad socioeconómica de los usuarios.
+\end{enumerate}
+
+\newpage
+\section{\texorpdfstring{\textbf{Marco teórico}}{Marco teórico}}\label{marco-teuxf3rico}
+
+El presente marco teórico desarrolla los principales fundamentos relacionados con el impacto de la educación financiera en la gestión y optimización de las remesas familiares en Nicaragua. Para ello, se abordan las remesas familiares como fuente de ingreso en la economía del hogar, la educación financiera como herramienta para mejorar la toma de decisiones, la planificación financiera familiar y el comportamiento del consumidor financiero.
+
+\subsection{\texorpdfstring{\textbf{Remesas familiares y economía del hogar}}{Remesas familiares y economía del hogar}}\label{remesas-familiares-y-economuxeda-del-hogar}
+
+\subsubsection{\texorpdfstring{\textbf{Concepto de remesas familiares}}{Concepto de remesas familiares}}\label{concepto-de-remesas-familiares}
+
+Las remesas familiares son transferencias de dinero o bienes enviadas por personas migrantes hacia sus hogares, familiares o comunidades de origen. Desde una perspectiva económica, el Banco Mundial las define como transferencias personales que forman parte de los flujos internacionales entre hogares residentes y no residentes (Banco Mundial, 2024). Asimismo, el Fondo Monetario Internacional las registra dentro de la balanza de pagos como transferencias corrientes asociadas al trabajo de personas migrantes en el exterior (FMI, 2009). Esta definición permite comprender las remesas como ingresos privados que, aunque nacen de decisiones familiares, tienen efectos importantes en la economía nacional.
+
+Más allá de su dimensión monetaria, las remesas expresan vínculos familiares, compromisos afectivos y estrategias de apoyo económico. Stark y Bloom (1985), desde la Nueva Economía de la Migración Laboral, explican que la migración puede ser una decisión del hogar para diversificar ingresos y reducir riesgos. En ese sentido, las remesas no son únicamente ``dinero enviado'', sino parte de una estrategia familiar para enfrentar limitaciones del mercado laboral, falta de crédito, desempleo o ingresos insuficientes.
+
+Las remesas pueden clasificarse según su canal de envío en formales e informales; según su destino, en remesas para consumo, ahorro, educación, salud, vivienda o inversión productiva; y según su frecuencia, en regulares o extraordinarias. Esta clasificación es relevante porque permite analizar si el dinero recibido se utiliza solamente para cubrir necesidades inmediatas o si también contribuye a crear estabilidad económica de largo plazo. Por ello, el estudio de las remesas debe relacionarse directamente con la economía del hogar y con la capacidad de planificación financiera familiar.
+
+\subsubsection{\texorpdfstring{\textbf{Remesas como fuente de ingreso en América Latina}}{Remesas como fuente de ingreso en América Latina}}\label{remesas-como-fuente-de-ingreso-en-amuxe9rica-latina}
+
+En América Latina y el Caribe, las remesas se han convertido en una fuente fundamental de ingresos para millones de hogares. El Banco Interamericano de Desarrollo ha señalado que estos flujos mantienen una tendencia creciente en la región y que representan una de las principales entradas de divisas para varios países latinoamericanos, especialmente en Centroamérica y el Caribe (BID, 2024). Su importancia se explica porque complementan ingresos laborales bajos, ayudan a cubrir necesidades básicas y funcionan como una forma privada de protección económica.
+
+Las remesas tienen efectos tanto microeconómicos como macroeconómicos. A nivel del hogar, aumentan el ingreso disponible y permiten financiar alimentación, vivienda, educación, salud y pago de deudas. A nivel nacional, contribuyen a la entrada de divisas, fortalecen el consumo interno y pueden reducir presiones en la balanza de pagos. Sin embargo, autores como De Haas (2007) advierten que las remesas no deben considerarse automáticamente como un motor de desarrollo, ya que su impacto depende de las condiciones sociales, institucionales y financieras del país receptor.
+
+En la región, muchas familias usan las remesas principalmente para consumo corriente. Esto no significa necesariamente una mala administración, pues en contextos de pobreza, informalidad laboral y baja protección social, cubrir necesidades básicas es una prioridad. No obstante, cuando las remesas se destinan únicamente al gasto inmediato, su capacidad para generar ahorro, inversión o movilidad económica se reduce. Por esta razón, la educación financiera resulta importante para orientar una parte de estos ingresos hacia metas de mayor estabilidad.
+
+\subsubsection{\texorpdfstring{\textbf{Importancia de las remesas en Nicaragua}}{Importancia de las remesas en Nicaragua}}\label{importancia-de-las-remesas-en-nicaragua}
+
+En Nicaragua, las remesas familiares tienen una importancia significativa tanto para los hogares como para la economía nacional. Según el Banco Central de Nicaragua, en 2024 el país recibió más de 5,200 millones de dólares en remesas, lo que representó una proporción considerable del Producto Interno Bruto y confirmó su papel como una de las principales fuentes de divisas del país (BCN, 2025a). Este dato evidencia que las remesas no son un ingreso complementario menor, sino un componente central de la economía nicaragüense.
+
+La mayor parte de las remesas que recibe Nicaragua proviene de Estados Unidos, seguido por Costa Rica y España. Esta concentración implica que muchas familias nicaragüenses dependen de la estabilidad laboral y migratoria de sus familiares en el exterior. Si el migrante pierde empleo, reduce sus ingresos o enfrenta dificultades legales, el hogar receptor puede experimentar una disminución inmediata de sus recursos. Por ello, la dependencia de remesas también representa una forma de vulnerabilidad.
+
+En el ámbito familiar, las remesas permiten cubrir gastos esenciales como alimentación, servicios básicos, transporte, salud, educación y vivienda. En muchos hogares, estos ingresos ayudan a sostener el consumo mensual y a compensar la insuficiencia del ingreso local. Sin embargo, su impacto puede ser limitado si no se administran mediante presupuesto, ahorro y planificación. En este sentido, el caso nicaragüense muestra la necesidad de transformar las remesas de un ingreso de corto plazo en una herramienta para fortalecer la estabilidad económica del hogar.
+
+\subsubsection{\texorpdfstring{\textbf{Remesas, consumo y vulnerabilidad económica familiar}}{Remesas, consumo y vulnerabilidad económica familiar}}\label{remesas-consumo-y-vulnerabilidad-econuxf3mica-familiar}
+
+Las remesas suelen utilizarse principalmente para cubrir el consumo básico del hogar. Este comportamiento responde a la realidad económica de muchas familias, donde los ingresos locales no son suficientes para cubrir todos los gastos. Desde la teoría del consumo, Friedman (1957) plantea que los hogares buscan mantener cierto nivel de consumo en el tiempo, pero cuando los ingresos son inestables, esta estabilidad se vuelve difícil. En este contexto, la remesa ayuda a suavizar el consumo y a enfrentar necesidades inmediatas.
+
+No obstante, la vulnerabilidad aparece cuando el hogar depende excesivamente de la remesa y no cuenta con ahorro o fuentes alternativas de ingreso. Si el dinero recibido se gasta completamente antes del siguiente envío, cualquier emergencia puede obligar a la familia a endeudarse. CEPAL (2024) señala que muchos hogares latinoamericanos enfrentan baja protección social, desigualdad e ingresos insuficientes, lo que aumenta su exposición ante crisis económicas, enfermedades o pérdida de empleo.
+
+Además, las remesas pueden influir en las dinámicas familiares. Pueden fortalecer la solidaridad entre migrantes y familiares, pero también generar tensiones sobre el uso del dinero. Quien envía puede esperar que una parte se ahorre o se invierta, mientras que quien recibe puede tener gastos urgentes que atender. Por eso, la gestión de remesas debe basarse en comunicación familiar, acuerdos claros y planificación. En síntesis, las remesas reducen la vulnerabilidad inmediata, pero solo generan estabilidad de largo plazo cuando se administran con educación financiera.
+
+\subsection{\texorpdfstring{\textbf{Educación financiera}}{Educación financiera}}\label{educaciuxf3n-financiera}
+
+\subsubsection{\texorpdfstring{\textbf{Definición de educación financiera}}{Definición de educación financiera}}\label{definiciuxf3n-de-educaciuxf3n-financiera}
+
+La educación financiera se entiende como el proceso mediante el cual las personas adquieren conocimientos, habilidades, actitudes y comportamientos que les permiten tomar decisiones económicas informadas y mejorar su bienestar financiero. La OCDE/INFE, Red Internacional de Educación Financiera, define la alfabetización financiera como una combinación de conciencia, conocimiento, habilidades, actitudes y conductas necesarias para tomar decisiones financieras adecuadas y alcanzar bienestar financiero individual (OECD/INFE, 2023). Esta definición se considera útil para el presente estudio porque no reduce la educación financiera a ``saber ahorrar'', sino que también la vincula con la capacidad práctica de administrar recursos en contextos reales, como ocurre con las familias receptoras de remesas en sector Santa Cruz, Estelí.
+
+Es importante diferenciar tres conceptos relacionados, pues se parecen, pero no significan lo mismo. La educación financiera se refiere al proceso formativo: talleres, herramientas, guías, asesorías o materiales que enseñan a manejar el dinero. La literacia financiera se refiere al resultado de ese proceso: la capacidad de comprender conceptos financieros y aplicarlos en decisiones cotidianas. Por otro lado, la alfabetización financiera, usada con frecuencia como traducción de financial literacy, suele enfatizar la comprensión básica de conceptos como presupuesto, ahorro, deuda, interés e inflación. Sin embargo, autores como Remund (2010) advierten que el concepto debe incluir no solo comprensión, sino también habilidad y confianza para administrar recursos personales.
+
+La evolución del concepto muestra un cambio importante en la literatura. En sus primeras aproximaciones, la educación financiera se asociaba principalmente con conocimiento técnico sobre productos financieros. Posteriormente, autores como Huston (2010) plantearon que la literacia financiera combina conocimiento y aplicación de capital humano específico en finanzas personales. Más adelante, Atkinson y Messy (2012) integraron tres dimensiones medibles: conocimiento, actitud y comportamiento financiero. Esta evolución permite que el marco teórico del proyecto no se limite a medir cuánto saben las familias, sino también cómo planifican, qué actitudes tienen hacia el ahorro y cómo distribuyen efectivamente las remesas.
+
+\subsubsection{\texorpdfstring{\textbf{Educación financiera como capital humano}}{Educación financiera como capital humano}}\label{educaciuxf3n-financiera-como-capital-humano}
+
+La educación financiera puede entenderse como una forma de capital humano porque incrementa la capacidad de las personas para tomar mejores decisiones económicas. Desde esta perspectiva, aprender a elaborar un presupuesto, comparar alternativas de gasto, calcular deudas o construir un fondo de emergencia no es solamente adquirir información, sino desarrollar capacidades que pueden mejorar el bienestar del hogar. Lusardi y Mitchell (2014) sostienen que el conocimiento financiero puede analizarse como una inversión en capital humano, ya que influye en decisiones de ahorro, endeudamiento, retiro, inversión y acumulación patrimonial.
+
+En hogares receptores de remesas, esta idea es clave, porque la remesa por sí sola no garantiza movilidad económica; su efecto depende de cómo se utilice. Si el ingreso se destina únicamente a consumo inmediato, puede aliviar necesidades presentes, pero no necesariamente reduce la vulnerabilidad futura. En cambio, cuando existe educación financiera, la familia puede asignar una parte del ingreso a ahorro, educación, salud preventiva, pago ordenado de deudas o pequeñas inversiones.
+
+Las familias con mayor capacidad financiera pueden enfrentar mejor las emergencias, reducir dependencia de créditos informales o a particulares, planificar metas y disminuir el impacto de interrupciones en el flujo de remesas. En el caso de Nicaragua, esta discusión es pertinente porque las remesas representaron 26.6\% del PIB en 2024 según datos del Banco Mundial, lo que muestra su relevancia macroeconómica y familiar. Para el proyecto del sector Santa Cruz, esta base teórica justifica el diseño de una herramienta que no solo informe, sino que ayude a transformar la remesa en planificación financiera familiar.
+
+\subsubsection{\texorpdfstring{\textbf{Conocimiento, actitud y comportamiento financiero}}{Conocimiento, actitud y comportamiento financiero}}\label{conocimiento-actitud-y-comportamiento-financiero}
+
+La literatura reciente analiza la educación financiera a través de un triángulo compuesto por conocimiento, actitud y comportamiento financiero. El conocimiento financiero incluye la comprensión de conceptos básicos como ingresos, gastos, ahorro, deuda, interés, inflación y riesgo. La actitud financiera se refiere a la disposición subjetiva de las personas frente al dinero: si valoran el ahorro, si prefieren planificar, si perciben riesgo o si priorizan el consumo inmediato. El comportamiento financiero, por su parte, corresponde a las acciones observables: hacer presupuesto, registrar gastos, ahorrar, comparar precios, pagar deudas a tiempo o separar dinero para emergencias. Atkinson y Messy (2012) utilizaron precisamente estas dimensiones para medir la alfabetización financiera en distintos países.
+
+Sin embargo, el conocimiento no siempre se convierte automáticamente en comportamiento responsable. Una persona puede saber que ahorrar es importante y aun así no hacerlo, debido a restricciones de ingreso, deudas acumuladas, presión familiar, gastos imprevistos o preferencias por el consumo presente. Fernandes, Lynch y Netemeyer (2014) muestran que los efectos de la educación financiera sobre los comportamientos posteriores pueden ser limitados si no se acompañan de condiciones que faciliten la acción.
+
+Entre la actitud y la acción financiera intervienen diversos factores: nivel de ingreso, estabilidad laboral, acceso a servicios financieros, confianza en instituciones, normas familiares, género, urgencia de gastos y capacidad de autocontrol. Miller, Reichelstein, Salas y Zia (2015), en una revisión de intervenciones de educación financiera, señalan que los programas pueden mejorar conocimientos y algunos comportamientos, pero sus resultados dependen del diseño, la oportunidad y la cercanía con las decisiones reales de los usuarios. Por tanto, para el sector Santa Cruz, Estelí, la herramienta debe estar adaptada al momento en que la familia recibe la remesa, a sus rubros de gasto y a metas alcanzables.
+
+\subsubsection{\texorpdfstring{\textbf{Educación financiera en hogares de ingresos dependientes}}{Educación financiera en hogares de ingresos dependientes}}\label{educaciuxf3n-financiera-en-hogares-de-ingresos-dependientes}
+
+Los hogares dependientes de remesas presentan particularidades que diferencian su planificación financiera de la de hogares con ingresos salariales estables. La remesa puede variar en monto, frecuencia y oportunidad de envío, dependiendo de la situación laboral del migrante, costos de vida en el país emisor, políticas migratorias, tipo de cambio y emergencias familiares. Por ello, la educación financiera en estos hogares debe enfocarse en administrar incertidumbre, no solo en ordenar gastos mensuales.
+
+La planificación con ingresos irregulares exige herramientas sencillas para clasificar prioridades. Es decir, una familia receptora de remesas necesita distinguir entre gastos esenciales, gastos variables, deudas, ahorro preventivo y metas de inversión. En América Latina, estudios sobre remesas han mostrado que estos ingresos pueden contribuir al consumo, la reducción de pobreza, la educación, la salud y la inclusión financiera, pero sus efectos dependen del contexto y del uso que hagan los hogares receptores (Fajnzylber \& López, 2008). Asimismo, trabajos sobre inclusión financiera y remesas señalan que recibir remesas puede aumentar la probabilidad de usar servicios financieros formales, aunque esto no ocurre automáticamente sin confianza, acceso y capacidades financieras (Aga \& Martínez Pería, 2014).
+
+En este sentido, la educación financiera puede facilitar la transición de un modelo centrado en consumo de corto plazo hacia uno que combine consumo, ahorro y estabilidad futura. Esto no implica reducir gastos básicos, sino ordenar la remesa según prioridades familiares. Por ejemplo, una herramienta práctica puede sugerir una distribución porcentual flexible: una parte para necesidades esenciales, otra para compromisos financieros, otra para ahorro de emergencia y otra para metas familiares. La propuesta inicial del proyecto plantea precisamente optimizar la distribución de remesas entre consumo y ahorro en familias de sector Santa Cruz, Estelí, lo que convierte la educación financiera en el fundamento teórico de la herramienta.
+
+Desde una perspectiva aplicada, la educación financiera en hogares receptores de remesas debe ser contextual, gradual y accionable. Contextual, porque debe reconocer la realidad económica de la comunidad; gradual, porque no todas las familias tienen el mismo nivel de conocimiento; y accionable, porque debe traducirse en decisiones concretas. Por ello, la educación financiera no debe verse únicamente como transmisión de información, sino como una capacidad práctica para transformar ingresos variables en mayor resiliencia económica familiar.
+
+\subsection{\texorpdfstring{\textbf{Gestión y planificación financiera familiar}}{Gestión y planificación financiera familiar}}\label{gestiuxf3n-y-planificaciuxf3n-financiera-familiar}
+
+La gestión financiera familiar constituye el punto de enlace entre la educación financiera y el comportamiento económico cotidiano. En hogares receptores de remesas, como los ubicados en comunidades rurales como Santa Cruz, Estelí, la administración del dinero no depende únicamente de saber elaborar cálculos, sino de convertir ingresos variables en decisiones estables de consumo, ahorro y protección. No se identificó evidencia académica específica sobre Santa Cruz, en materia de remesas; por ello, este capítulo se fundamenta en evidencia nacional de Nicaragua, datos y estudios latinoamericanos comparables.
+
+\subsubsection{\texorpdfstring{\textbf{Presupuesto familiar}}{Presupuesto familiar}}\label{presupuesto-familiar}
+
+El presupuesto familiar puede entenderse como una herramienta de planificación que permite ordenar los ingresos disponibles, estimar los gastos y asignar recursos hacia necesidades presentes y objetivos futuros. Desde la educación financiera básica, el presupuesto cumple una doble función: controlar el gasto y estimular el ahorro, ya que permite observar cuánto dinero entra, en qué se utiliza y qué decisiones pueden corregirse para mejorar el bienestar del hogar (Kapoor et al., 2024, p.~18). En familias receptoras de remesas, el presupuesto no debe construirse como si el ingreso fuera completamente fijo, sino como un instrumento flexible que contemple fechas irregulares de envío, diferencias en el monto recibido y posibles interrupciones del flujo.
+
+Desde la economía del comportamiento, el presupuesto también funciona como un mecanismo de ``contabilidad mental''. Thaler explica que los hogares suelen organizar, evaluar y controlar sus actividades financieras mediante cuentas mentales, separando el dinero según su origen o destino, aunque técnicamente todo el dinero sea fungible (Thaler, 1999, pp.~183-184). Esta idea es útil para hogares con remesas: si la familia etiqueta una parte de la remesa como ``alimentación'', otra como ``ahorro'' y otra como ``emergencias'', reduce la probabilidad de que todo el ingreso se absorba en consumo inmediato. Así, el presupuesto se convierte en una herramienta técnica y conductual.
+
+\subsubsection{\texorpdfstring{\textbf{Clasificación de gastos}}{Clasificación de gastos}}\label{clasificaciuxf3n-de-gastos}
+
+La clasificación de gastos permite distinguir entre obligaciones esenciales, gastos variables, gastos discrecionales y asignaciones para ahorro o inversión. En hogares vulnerables, esta separación es clave porque no todos los gastos tienen la misma prioridad ni el mismo efecto sobre la estabilidad futura. Los gastos indispensables incluyen alimentación, vivienda, servicios básicos, salud, educación y transporte; los gastos variables dependen del consumo mensual; y los gastos discrecionales corresponden a compras que pueden reducirse o postergarse. Esta lógica coincide con la literatura de gestión presupuestaria, que identifica los gastos discrecionales como los primeros susceptibles de ajuste cuando el presupuesto se encuentra presionado (Kapoor et al., 2024, p.~18).
+
+Para las familias receptoras de remesas, la clasificación debería adaptarse al origen extraordinario o externo del ingreso. La remesa no debe interpretarse únicamente como dinero adicional para consumo, sino como un recurso que puede distribuirse entre consumo básico, pago de compromisos, fondo de emergencia, metas familiares y formación de activos. En este sentido, la clasificación de gastos prepara el tránsito desde un modelo de consumo inmediato hacia una gestión de largo plazo. Además, evita que la familia confunda liquidez temporal con capacidad permanente de gasto, problema frecuente cuando el ingreso depende de decisiones laborales y migratorias de otra persona.
+
+\subsubsection{\texorpdfstring{\textbf{Ahorro y fondo de emergencia}}{Ahorro y fondo de emergencia}}\label{ahorro-y-fondo-de-emergencia}
+
+El ahorro familiar cumple una función preventiva y estratégica. En América Latina, la capacidad de ahorro está fuertemente asociada al nivel de ingreso, y un estudio del BID sobre diez países de la región muestra que casi la mitad de los hogares presenta ahorro negativo, lo que refleja presión presupuestaria, subregistro de ingresos o gasto superior a los recursos disponibles (Garbero et al., 2015, p.~1). En el caso de hogares con remesas, esta situación exige separar el ahorro de la idea de ``dinero sobrante'': el ahorro debe presupuestarse desde el inicio, aunque sea en montos pequeños.
+
+El fondo de emergencia es especialmente relevante en contextos de vulnerabilidad económica. La CFPB señala que los hogares enfrentan amenazas imprevistas al bienestar financiero, como reparaciones, enfermedades, pérdida de empleo o desastres, y que el ahorro de emergencia es una vía fundamental para enfrentar esos choques sin deteriorar la estabilidad financiera (Consumer Financial Protection Bureau, 2022, p.~3). Para familias dependientes de remesas, este fondo debe cubrir tanto emergencias locales como interrupciones del envío. Orozco encontró que, en Nicaragua y Guatemala, las remesas pueden aumentar el ahorro en hogares receptores, aunque la tenencia de cuentas bancarias no necesariamente aumenta por recibir remesas, lo que sugiere barreras de acceso o confianza en el sistema financiero (Orozco, 2007, p.~1).
+
+\subsubsection{\texorpdfstring{\textbf{Planificación de metas familiares}}{Planificación de metas familiares}}\label{planificaciuxf3n-de-metas-familiares}
+
+La planificación de metas convierte el presupuesto en un proyecto familiar. Las metas deben ser concretas, medibles y realistas, diferenciando objetivos de corto plazo, como cubrir útiles escolares o cancelar una deuda pequeña; objetivos de mediano plazo, como mejorar la vivienda o financiar estudios técnicos; y objetivos de largo plazo, como crear un negocio familiar o acumular capital educativo. Fajnzylber y López señalan que, a nivel microeconómico, las remesas permiten a hogares pobres aumentar ahorro, adquirir bienes durables e invertir en capital humano, especialmente salud y educación (Fajnzylber \& López, 2008, p.~2).
+
+No obstante, la planificación de metas no es solo racionalidad financiera. Kahneman y Tversky demostraron que las personas deciden bajo riesgo evaluando ganancias y pérdidas de forma asimétrica, dando mayor peso psicológico a ciertas pérdidas que a ganancias equivalentes (Kahneman \& Tversky, 1979, p.~263). Esto ayuda a explicar por qué algunas familias prefieren usar la remesa en consumo inmediato antes que inmovilizarla en ahorro: el beneficio futuro se percibe lejano, mientras que la necesidad presente se siente urgente. Por ello, la herramienta práctica del Capítulo V debe traducir las metas en cuotas pequeñas, visibles y periódicas, para reducir la resistencia conductual al ahorro.
+
+\subsubsection{\texorpdfstring{\textbf{Riesgo e incertidumbre en ingresos por remesas}}{Riesgo e incertidumbre en ingresos por remesas}}\label{riesgo-e-incertidumbre-en-ingresos-por-remesas}
+
+Las remesas son importantes, pero no son plenamente controlables por el hogar receptor. En Nicaragua, el ingreso por remesas alcanzó US\$5,243.1 millones en 2024, con un crecimiento de 12.5\% respecto a 2023; además, el 82.8\% provino de Estados Unidos, lo que evidencia una alta concentración del origen de los fondos (BCN, 2025a, p.~1). En el primer trimestre de 2025, Nicaragua recibió US\$1,441.3 millones, y concentró el 25.7\% de los receptores, dato relevante para aproximar el contexto rural donde se ubica Santa Cruz, Estelí (BCN, 2025b, pp.~1, 5).
+
+La incertidumbre surge porque las remesas dependen del empleo, salario, situación migratoria, tipo de cambio, costos de envío y shocks económicos del país emisor. De la Fuente et al.~explican que las remesas fluctúan ante choques adversos tanto en países emisores como receptores, disminuyendo cuando el país de envío enfrenta una recesión y aumentando cuando el país receptor experimenta una crisis que activa motivos altruistas (de la Fuente et al., 2022, p.~2). Por tanto, la planificación financiera familiar debe asumir tres escenarios: remesa normal, remesa reducida y remesa suspendida. Esta lógica prepara el paso hacia el análisis del comportamiento del consumidor, porque muestra que las decisiones familiares no se toman solo con información, sino bajo presión, incertidumbre y sesgos conductuales.
+
+\subsection{\texorpdfstring{\textbf{Comportamiento del consumidor financiero}}{Comportamiento del consumidor financiero}}\label{comportamiento-del-consumidor-financiero}
+
+En este ámbito, el comportamiento del consumidor financiero estudia cómo las personas y los hogares toman decisiones sobre el uso del dinero, el consumo, el ahorro, la deuda y la planificación económica. En el caso de las familias receptoras de remesas, este análisis es especialmente importante porque las remesas no solo representan un ingreso monetario, sino también una fuente de seguridad, dependencia, compromiso familiar y expectativas sociales. Por ello, el uso de las remesas no puede entenderse únicamente desde una perspectiva económica racional, sino también desde factores psicológicos, culturales y sociales que influyen en las decisiones financieras del hogar.
+
+Desde la teoría económica tradicional, autores como Friedman (1957) plantean que las familias tienden a organizar su consumo según su ingreso permanente, es decir, según la expectativa de ingresos que consideran estables en el largo plazo. Por su parte, Modigliani y Brumberg (1955), mediante la hipótesis del ciclo de vida, explican que las personas intentan distribuir su consumo y ahorro a lo largo de las diferentes etapas de su vida. Sin embargo, en hogares con ingresos variables o dependientes de remesas, estas decisiones pueden verse limitadas por la incertidumbre, las necesidades inmediatas y la falta de planificación financiera.
+
+\subsubsection{\texorpdfstring{\textbf{Decisiones de consumo en el hogar}}{Decisiones de consumo en el hogar}}\label{decisiones-de-consumo-en-el-hogar}
+
+En este contexto, las decisiones de consumo en el hogar se refieren a la forma en que las familias asignan sus ingresos entre distintas necesidades, como alimentación, vivienda, salud, educación, transporte, pago de deudas, recreación y ahorro. Por ende, en hogares receptores de remesas, estas decisiones suelen estar condicionadas por la periodicidad del envío, el monto recibido, el número de miembros de la familia y el nivel de dependencia económica que existe respecto al familiar migrante. Por esta razón, la remesa puede convertirse en un ingreso destinado principalmente al consumo cotidiano, especialmente cuando el hogar no cuenta con otras fuentes estables de ingreso.
+
+Según Adams y Cuecuecha (2010), las remesas pueden modificar los patrones de gasto de los hogares, ya que no siempre se utilizan de la misma forma que otros ingresos. En este sentido, su estudio sobre Guatemala muestra que las remesas pueden orientarse tanto al consumo como a inversiones en educación, vivienda u otros activos familiares, dependiendo de las características del hogar y de sus restricciones económicas. Se puede argumentar que esta idea es importante para el caso de Nicaragua, porque permite comprender que las remesas no tienen un destino único: pueden aliviar necesidades inmediatas, pero también pueden convertirse en una oportunidad para fortalecer la estabilidad económica familiar si existe planificación.
+
+Desde esta perspectiva, el problema no es que las familias usen las remesas para consumir, ya que cubrir necesidades básicas es una función legítima de este ingreso. El problema surge cuando todo el ingreso recibido se destina al consumo inmediato sin reservar una parte para emergencias, ahorro o metas futuras. En ese sentido, el comportamiento financiero del hogar depende no solo del nivel de ingreso, sino también de la capacidad de priorizar, planificar y diferenciar entre gastos necesarios, gastos variables y gastos prescindibles.
+
+\subsubsection{\texorpdfstring{\textbf{Consumo presente versus seguridad futura}}{Consumo presente versus seguridad futura}}\label{consumo-presente-versus-seguridad-futura}
+
+Cabe destacar que una de las tensiones más importantes en la gestión de las remesas es la elección entre consumo presente y seguridad futura. Primeramente, el consumo presente responde a necesidades inmediatas, como comprar alimentos, pagar servicios básicos o cubrir deudas urgentes. La seguridad futura, en cambio, implica reservar parte del ingreso para enfrentar emergencias, construir ahorro, invertir en educación, mejorar la vivienda o reducir la dependencia económica del envío recibido.
+
+Asimismo, la teoría del ingreso permanente de Friedman (1957) sostiene que el consumo no debería depender únicamente del ingreso recibido en un momento específico, sino de la expectativa de ingresos a largo plazo. Sin embargo, en la práctica, muchas familias enfrentan restricciones que dificultan este comportamiento, sobre todo cuando los ingresos son bajos, irregulares o insuficientes. En estos casos, la familia puede verse obligada a priorizar el presente, aun cuando reconozca la importancia del ahorro futuro.
+
+La hipótesis del ciclo de vida de Modigliani y Brumberg (1955) también ayuda a explicar esta tensión, ya que plantea que los hogares deberían distribuir sus recursos entre las necesidades actuales y las necesidades futuras. No obstante, esta teoría supone cierto nivel de racionalidad, estabilidad e información que muchas veces no existe en hogares vulnerables. Por ello, en familias que dependen de remesas, el reto principal consiste en transformar un ingreso recibido periódicamente en una herramienta de estabilidad, no solo en un recurso de consumo inmediato.
+
+En el contexto del comportamiento del consumidor en la sociedad nicaragüense, donde el ingreso depende en gran parte de remesas, como ocurre en comunidades rurales receptoras de remesas, como Santa Cruz, Estelí, esta discusión resulta relevante porque una herramienta de gestión financiera debe ayudar a las familias a visualizar esa diferencia entre ``usar todo hoy'' y ``organizar una parte para mañana''. No se trata de eliminar el consumo presente, sino de equilibrarlo con decisiones que reduzcan la vulnerabilidad futura. Por ejemplo, una familia puede seguir destinando la mayor parte de la remesa a necesidades básicas, pero reservar un pequeño porcentaje para ahorro, emergencia o metas específicas.
+
+\subsubsection{\texorpdfstring{\textbf{Sesgos de corto plazo y falta de planificación}}{Sesgos de corto plazo y falta de planificación}}\label{sesgos-de-corto-plazo-y-falta-de-planificaciuxf3n}
+
+Ahora bien, la economía del comportamiento ha demostrado que las personas no siempre toman decisiones financieras plenamente racionales. Kahneman y Tversky (1979), mediante la teoría prospectiva, explican que los individuos suelen decidir bajo incertidumbre utilizando percepciones, emociones y atajos mentales, lo que puede llevar a decisiones alejadas del cálculo económico racional. En el caso de las remesas, esto puede observarse cuando el hogar prioriza gastos inmediatos porque los percibe como más urgentes o emocionalmente satisfactorios, aunque existan necesidades futuras importantes.
+
+En este caso, uno de los sesgos más relevantes es el sesgo de presente, relacionado con la tendencia a valorar más las recompensas inmediatas que los beneficios futuros. Laibson explica este comportamiento a través del descuento hiperbólico, donde las personas pueden preferir consumir hoy aunque sepan que ahorrar sería más conveniente en el largo plazo. Aplicado a las remesas, esto significa que una familia puede tener intención de ahorrar, pero al recibir el dinero termina destinándolo a gastos inmediatos porque el beneficio presente se siente más concreto que la seguridad futura.
+
+Además, la falta de planificación también puede estar relacionada con una baja educación financiera. Bajo este contexto, Lusardi y Mitchell (2014) argumentan que el conocimiento financiero funciona como una forma de capital humano, porque permite a las personas tomar mejores decisiones sobre ahorro, endeudamiento, inversión y consumo. De igual forma, Atkinson y Messy (2012) señalan que la alfabetización financiera no se limita al conocimiento, sino que incluye actitudes y comportamientos financieros. Por tanto, una familia puede saber que ahorrar es importante, pero si no desarrolla hábitos, registros y metas concretas, difícilmente logrará sostener ese comportamiento.
+
+En este sentido, una herramienta financiera para familias receptoras de remesas debe considerar estos sesgos de corto plazo. No basta con decirle a la familia que debe ahorrar; es necesario facilitar mecanismos simples como presupuestos mensuales, separación del dinero por categorías, metas visibles, control de gastos y recordatorios de ahorro. Estas estrategias ayudan a transformar una intención general en una práctica concreta.
+
+\subsubsection{\texorpdfstring{\textbf{Factores sociales y culturales en el uso del dinero}}{Factores sociales y culturales en el uso del dinero}}\label{factores-sociales-y-culturales-en-el-uso-del-dinero}
+
+Se sabe que el uso de las remesas también está influido por factores sociales y culturales, ya que las remesas no son únicamente transferencias económicas, sino expresiones de vínculos familiares, responsabilidad, afecto y compromiso entre el migrante y el hogar receptor. Carling (2020) sostiene que las remesas tienen efectos más amplios que la transferencia de poder adquisitivo, porque también pueden reforzar pertenencia familiar, obligaciones morales, estatus social y relaciones de dependencia.
+
+Desde una perspectiva sociológica, Zelizer (1997) plantea que el dinero no siempre es tratado de la misma manera, ya que las personas le asignan significados distintos según su origen, propósito y relación social. Esto es importante para analizar las remesas, porque muchas familias pueden percibir ese dinero como ``ayuda del familiar migrante'', ``dinero para la casa'', ``dinero para los hijos'' o ``dinero para resolver emergencias''. Esa clasificación simbólica influye directamente en la manera en que se gasta o se reserva.
+
+En comunidades donde las remesas tienen un peso importante, también pueden aparecer presiones sociales asociadas al consumo visible. Por ejemplo, algunas familias pueden sentir la necesidad de mejorar su vivienda, comprar ciertos bienes o responder a expectativas familiares porque recibir remesas puede interpretarse como señal de mayor capacidad económica. Este factor puede generar decisiones de gasto que no siempre responden a una planificación racional, sino a normas sociales, comparación con otros hogares o deseo de mantener cierto reconocimiento dentro de la comunidad.
+
+Por ello, una herramienta de educación financiera adaptada a Santa Cruz, Estelí debe tomar en cuenta la dimensión cultural del dinero. No debe plantear el ahorro como una imposición ajena a la realidad familiar, sino como una forma de proteger el esfuerzo del migrante y mejorar la estabilidad del hogar receptor. De esta manera, el ahorro puede presentarse no como una restricción al consumo, sino como una decisión familiar responsable que permite enfrentar emergencias, reducir deudas y construir metas de largo plazo.
+
+\subsection{\texorpdfstring{\textbf{Herramienta de educación y planificación financiera}}{Herramienta de educación y planificación financiera}}\label{herramienta-de-educaciuxf3n-y-planificaciuxf3n-financiera}
+
+\subsubsection{\texorpdfstring{\textbf{Función educativa de la herramienta}}{Función educativa de la herramienta}}\label{funciuxf3n-educativa-de-la-herramienta}
+
+La herramienta de educación y planificación financiera tiene como finalidad ayudar a las familias receptoras de remesas a administrar mejor sus ingresos. No debe entenderse únicamente como un formato para anotar gastos, sino como un instrumento educativo que permite desarrollar hábitos financieros básicos: registrar ingresos, clasificar gastos, ahorrar, reducir deudas y establecer metas familiares. Según la OCDE (2020), la educación financiera combina conocimientos, habilidades, actitudes y comportamientos que permiten tomar mejores decisiones económicas.
+
+En el caso de las remesas, la educación financiera es importante porque el hogar no solo necesita recibir dinero, sino aprender a distribuirlo de manera adecuada. Lusardi y Mitchell (2014) sostienen que la alfabetización financiera funciona como una forma de capital humano, ya que mejora la capacidad de las personas para tomar decisiones sobre ahorro, deuda, inversión y consumo. Aplicado a las familias receptoras de remesas, esto implica pasar de una administración basada en la urgencia a una planificación más ordenada.
+
+La función educativa de la herramienta debe centrarse en aprendizajes prácticos. La familia debe comprender cuánto recibe realmente, cuánto gasta, qué gastos son prioritarios, cuánto puede ahorrar y qué metas desea alcanzar. Además, debe promover la idea de que el ahorro no debe depender de ``lo que sobra'', sino separarse desde el momento en que se recibe la remesa. De esta manera, la herramienta cumple una función formativa y preventiva.
+
+\subsubsection{\texorpdfstring{\textbf{Diagnóstico financiero del hogar}}{Diagnóstico financiero del hogar}}\label{diagnuxf3stico-financiero-del-hogar}
+
+El diagnóstico financiero es el primer paso para aplicar la herramienta. Su objetivo es conocer la situación económica real del hogar antes de sugerir una distribución de la remesa. Atkinson y Messy (2012) señalan que la educación financiera debe evaluarse no solo por conocimientos, sino también por comportamientos y actitudes. Por ello, el diagnóstico debe revisar ingresos, gastos, deudas, ahorro y forma de tomar decisiones dentro del hogar.
+
+El diagnóstico debe iniciar con el registro de ingresos. Aquí se identifican las remesas recibidas, salarios, trabajos informales, ayudas familiares u otras entradas de dinero. Un indicador clave es el nivel de dependencia de la remesa, que se calcula comparando el monto recibido con el ingreso total del hogar. Mientras mayor sea la participación de la remesa, mayor será la exposición de la familia ante interrupciones o retrasos en el envío.
+
+También debe analizarse el gasto familiar. Los gastos pueden organizarse en alimentación, vivienda, servicios básicos, transporte, educación, salud, deudas y otros consumos. Esta clasificación permite identificar en qué se utiliza la remesa y qué gastos podrían ajustarse. Finalmente, el diagnóstico debe revisar la existencia de deudas y ahorro. Si el hogar tiene deudas atrasadas y no cuenta con fondo de emergencia, la herramienta debe priorizar la estabilización financiera antes que metas de inversión.
+
+\subsubsection{\texorpdfstring{\textbf{Distribución porcentual sugerida de remesas}}{Distribución porcentual sugerida de remesas}}\label{distribuciuxf3n-porcentual-sugerida-de-remesas}
+
+La distribución de remesas debe ser flexible, porque cada hogar tiene necesidades distintas. Sin embargo, una guía porcentual puede ayudar a organizar mejor el dinero recibido. Para fines didácticos, una regla simplificada como 50/30/20 permite clasificar el ingreso en necesidades, gastos flexibles y ahorro o protección financiera. Dentro de esa última categoría pueden ubicarse acciones prioritarias como crear un fondo de emergencia, adelantar pagos de deuda, ahorrar para educación, mejorar la vivienda o avanzar hacia una meta familiar.
+
+Esta propuesta se fundamenta en la idea de ahorro precautorio. Carroll (1997) explica que los hogares enfrentan incertidumbre sobre sus ingresos futuros, por lo que necesitan reservas para enfrentar emergencias. En el caso de las remesas, esta reserva es especialmente importante, porque el envío puede variar según la situación laboral del migrante, el costo de vida en el país de destino o problemas familiares imprevistos.
+
+La distribución también puede apoyarse en la teoría de la contabilidad mental de Thaler (1999), según la cual las personas administran mejor el dinero cuando lo separan por categorías. En la práctica, esto puede aplicarse mediante sobres, libretas, hojas de cálculo o cuentas separadas. Lo importante es que la familia divida la remesa al momento de recibirla y no espere hasta el final del mes para ahorrar. Esta práctica permite ordenar el consumo y proteger una parte del ingreso para el futuro.
+
+\subsubsection{\texorpdfstring{\textbf{Seguimiento de gastos y metas}}{Seguimiento de gastos y metas}}\label{seguimiento-de-gastos-y-metas}
+
+El seguimiento permite comprobar si la planificación financiera está funcionando. Un presupuesto sin revisión puede quedar solo como intención, mientras que una revisión mensual permite identificar errores, corregir gastos y medir avances. Por ello, la herramienta digital puede complementarse con controles sencillos de ingresos, gastos, ahorro, deuda y metas familiares mediante materiales impresos, ejercicios de taller o acompañamiento comunitario.
+
+El hogar puede utilizar una libreta o plantilla dividida en cuatro partes: ingresos recibidos, gastos realizados, ahorro separado y avance de metas. Las metas deben ser claras y medibles. Doran (1981) plantea que los objetivos deben ser específicos, medibles, alcanzables, relevantes y con tiempo definido. Por ejemplo, en lugar de decir ``queremos ahorrar'', la familia puede establecer: ``ahorrar C\$500 mensuales durante seis meses para gastos escolares''.
+
+La revisión debe hacerse al menos una vez al mes. En ese momento, la familia puede preguntarse si la remesa alcanzó hasta el siguiente envío, si se cumplió el ahorro, si disminuyeron las deudas y qué gasto debe corregirse. Este seguimiento convierte la herramienta en un proceso continuo de aprendizaje. Además, permite que la familia tome decisiones antes de que aparezca una crisis financiera.
+
+\subsubsection{\texorpdfstring{\textbf{Adaptación al contexto de Santa Cruz, Estelí.}}{Adaptación al contexto de Santa Cruz, Estelí.}}\label{adaptaciuxf3n-al-contexto-de-santa-cruz-esteluxed.}
+
+La herramienta propuesta debe adaptarse a la realidad económica y social de Santa Cruz, Estelí, una comunidad donde muchas familias dependen de remesas enviadas por familiares en el exterior. En este contexto, las remesas no solo funcionan como un ingreso adicional, sino como parte importante del presupuesto familiar, utilizado para cubrir alimentación, salud, educación, servicios básicos, transporte y otras necesidades del hogar.
+
+Por esta razón, la herramienta debe ser sencilla, práctica y fácil de utilizar. Su función principal debe ser ayudar a las familias a registrar cuánto dinero reciben, en qué lo gastan, cuánto pueden ahorrar y qué metas financieras desean alcanzar. Esto permitiría que las remesas no se destinen únicamente al consumo inmediato, sino que también puedan orientarse al ahorro, la inversión o la mejora de las condiciones de vida.
+
+La adaptación al contexto también implica usar un lenguaje claro y cercano, evitando conceptos financieros complejos. La herramienta debe explicar temas como presupuesto, ahorro, fondo de emergencia e inversión mediante ejemplos cotidianos, como separar una parte de la remesa para gastos básicos, otra para emergencias y otra para metas específicas, como mejorar la vivienda, apoyar estudios, comprar herramientas de trabajo o iniciar un pequeño negocio.
+
+Además, debe considerar que algunas familias combinan las remesas con ingresos locales provenientes de agricultura, comercio, trabajos temporales o pequeños emprendimientos. Por ello, la herramienta no debe enfocarse solo en las remesas, sino en la administración general de los ingresos del hogar.
+
+Finalmente, debe tomarse en cuenta el acceso tecnológico de la comunidad. Lo ideal es que la herramienta pueda utilizarse desde un celular, con instrucciones simples, o incluso mediante formatos impresos para quienes tengan menor acceso a internet. Así, la herramienta estaría verdaderamente adaptada a Santa Cruz, ayudando a las familias a organizar mejor sus ingresos, fortalecer el hábito del ahorro y tomar decisiones financieras más conscientes.
+
+\newpage
+\section{\texorpdfstring{\textbf{Tipo de investigación}}{Tipo de investigación}}\label{tipo-de-investigaciuxf3n}
+
+La presente investigación se define, según la función del propósito, como una investigación aplicada, porque no se limita a describir el uso de las remesas familiares, sino que propone una herramienta teórica y práctica de educación y planificación financiera para las familias receptoras de remesas en el sector Santa Cruz, municipio de Estelí. Su finalidad es contribuir a una mejor administración del ingreso recibido por remesas, promoviendo una distribución más equilibrada entre consumo inmediato, ahorro, previsión financiera y estabilidad económica del hogar.
+
+El enfoque aplicado se justifica porque el estudio parte de una problemática concreta: la necesidad de fortalecer la capacidad de las familias receptoras de remesas para administrar, distribuir y planificar el uso de estos ingresos. Para delimitar el estudio, se selecciona específicamente el sector Santa Cruz, dentro de la comarca Santa Cruz, municipio de Estelí. De acuerdo con el Censo 2005 del Instituto Nacional de Información de Desarrollo, la comarca Santa Cruz registra 791 viviendas particulares, de las cuales 197 corresponden específicamente al sector Santa Cruz (INIDE, 2005). Aunque esta información corresponde a un registro censal anterior, se utiliza como referencia territorial para delimitar el área de estudio, no como una estimación actualizada de la población.
+
+Según el nivel de profundidad, la investigación es principalmente descriptiva, porque identifica el comportamiento actual de gasto, la propensión al ahorro, el nivel de conocimiento financiero y los principales rubros de consumo de las familias receptoras de remesas en el sector Santa Cruz. A través de este nivel de análisis, se caracteriza cómo las familias distribuyen el dinero recibido, qué porcentaje destinan a necesidades básicas, qué prácticas de ahorro poseen y qué dificultades enfrentan para planificar financieramente.
+
+Asimismo, la investigación posee un componente explicativo, ya que no solo describe el comportamiento financiero de los hogares, sino que también busca comprender cómo la educación financiera incide en la gestión de las remesas. En este sentido, el estudio analiza de qué manera el conocimiento financiero, las actitudes hacia el ahorro y los hábitos de planificación influyen en la transición de un modelo centrado en el consumo de corto plazo hacia uno que incorpora ahorro, prevención y estabilidad económica familiar.
+
+Según la naturaleza de los datos e información, la investigación adopta un enfoque mixto. El componente cuantitativo permite recopilar y analizar datos relacionados con la frecuencia de recepción de remesas, montos aproximados recibidos, distribución porcentual del gasto, nivel de ahorro, existencia de deudas y dependencia del hogar respecto a este ingreso. Por su parte, el componente cualitativo permite interpretar percepciones, actitudes, hábitos financieros, criterios familiares de decisión y preocupaciones frente a posibles variaciones en el flujo de remesas.
+
+Según los medios para obtener datos, la investigación es documental y de campo. Es documental porque se apoya en fuentes bibliográficas, informes institucionales, artículos académicos y datos estadísticos sobre remesas, educación financiera, economía del hogar y condiciones socioeconómicas vinculadas al territorio. Es de campo porque obtiene información directa de los hogares del sector Santa Cruz, Estelí, mediante la aplicación de encuestas con pregunta filtro, con el propósito de identificar a las familias receptoras de remesas y conocer su realidad financiera.
+
+En cuanto al diseño muestral, la investigación utiliza un muestreo no probabilístico por conveniencia. Esto se debe a que las viviendas encuestadas se seleccionan según criterios de accesibilidad, disponibilidad de los informantes y posibilidad real de aplicar el instrumento en el territorio. Por tanto, los resultados no pretenden representar estadísticamente a la totalidad de viviendas del sector Santa Cruz, sino ofrecer una aproximación aplicada y contextual al comportamiento financiero de los hogares receptores de remesas identificados durante el levantamiento de información.
+
+La muestra inicial está conformada por 40 viviendas del sector Santa Cruz, seleccionadas por conveniencia a partir de una población territorial de referencia de 197 viviendas particulares registradas por INIDE para dicho sector (INIDE, 2005). A estas viviendas se les aplica una pregunta filtro para identificar si el hogar recibe o no remesas familiares. Como resultado, se determina que 34 de las 40 viviendas encuestadas sí reciben remesas, por lo que estas conforman la muestra efectiva del estudio. Esta distinción es importante, ya que el objetivo de la investigación no es analizar a todas las viviendas del sector, sino específicamente a aquellas familias que reciben remesas y enfrentan decisiones relacionadas con la administración, distribución, ahorro y planificación de este ingreso.
+
+Según el grado de manipulación de variables, la investigación es no experimental, debido a que no se modifican las condiciones económicas de los hogares ni se aplica un tratamiento controlado sobre las familias participantes. En lugar de intervenir directamente sobre las variables de estudio, se observan y analizan las condiciones existentes relacionadas con la recepción, uso, distribución, ahorro y planificación de las remesas en el entorno familiar.
+
+Finalmente, según el período temporal, el estudio es transversal, porque la información se recopila en un momento determinado. Esto permite analizar la situación financiera actual de los hogares receptores de remesas identificados en el sector Santa Cruz, Estelí, así como reconocer necesidades concretas que sirven de base para el diseño de una herramienta de educación y planificación financiera ajustada a su realidad.
+
+\subsection{\texorpdfstring{\textbf{Población y muestra}}{Población y muestra}}\label{poblaciuxf3n-y-muestra}
+
+La población de estudio está conformada por las viviendas ubicadas específicamente en el sector Santa Cruz, perteneciente a la comunidad de Santa Cruz, municipio de Estelí. De acuerdo con la información territorial utilizada como referencia, la comunidad de Santa Cruz está integrada por distintos sectores, entre ellos Tres Esquinas, Santa Cruz, Hato Viejo, La Habana, La Ceiba, San Juan, Los Plancitos, Las Cámaras y Buena Vista. Para efectos de esta investigación, la delimitación se centra únicamente en el sector Santa Cruz, el cual registra un total de 197 viviendas.
+
+Esta delimitación permite concentrar el estudio en un espacio geográfico más específico y manejable, evitando trabajar con toda la comunidad de Santa Cruz. Además, facilita la recolección de información directa en campo y permite analizar con mayor precisión la situación financiera de los hogares receptores de remesas dentro del sector seleccionado.
+
+Debido a las condiciones prácticas del estudio, el tipo de muestreo utilizado será no probabilístico por conveniencia. Esto significa que las viviendas encuestadas fueron seleccionadas según criterios de accesibilidad, disponibilidad de los informantes y posibilidad real de aplicar el instrumento en el territorio. Por tanto, no se utilizará una fórmula de muestreo probabilístico ni se asumirá un margen de error estadístico, ya que la muestra no fue seleccionada de manera aleatoria.
+
+La muestra inicial estuvo conformada por 40 viviendas del sector Santa Cruz, lo que representa aproximadamente el 20.3\% del total de viviendas registradas en dicho sector. A estas viviendas se les aplicó una pregunta filtro con el propósito de identificar cuáles hogares reciben remesas familiares. Esta pregunta fue necesaria porque no todas las viviendas del sector necesariamente reciben ingresos enviados desde el exterior.
+
+A partir de la aplicación de la pregunta filtro, se identificó que 34 de las 40 viviendas encuestadas sí reciben remesas familiares. Por tanto, la muestra efectiva del estudio estará conformada por 34 hogares receptores de remesas, representados por las personas informantes que respondieron el instrumento. Esto equivale al 85\% de la muestra inicial levantada en campo.
+
+En consecuencia, la investigación trabajará con una muestra inicial de viviendas y una muestra efectiva de hogares receptores de remesas. Esta distinción es importante porque el objetivo del estudio no es analizar a todas las viviendas del sector Santa Cruz, sino específicamente a aquellas familias que reciben remesas y que, por tanto, enfrentan decisiones relacionadas con la administración, distribución, ahorro y planificación de este ingreso.
+
+\newpage
+\section{\texorpdfstring{\textbf{Resultados y análisis}}{Resultados y análisis}}\label{capuxedtulo-iv-resultados-y-anuxe1lisis}
+
+\subsection{\texorpdfstring{\textbf{Encuesta Diagnóstica (Encuesta 1): Situación Financiera de los Hogares Receptores de Remesas}}{Encuesta Diagnóstica (Encuesta 1): Situación Financiera de los Hogares Receptores de Remesas}}\label{encuesta-diagnuxf3stica-encuesta-1-situaciuxf3n-financiera-de-los-hogares-receptores-de-remesas}
+
+\subsubsection{\texorpdfstring{\textbf{Descripción del instrumento}}{Descripción del instrumento}}\label{descripciuxf3n-del-instrumento}
+
+La primera encuesta, denominada encuesta diagnóstica, fue diseñada con el propósito de caracterizar la situación financiera actual de los hogares receptores de remesas en la comunidad de Santa Cruz, Estelí. El instrumento constó de doce preguntas distribuidas en cuatro ejes temáticos: (1) caracterización sociodemográfica del hogar, (2) características de la recepción de remesas, (3) patrones de gasto y ahorro, y (4) nivel de conocimiento financiero. Las preguntas combinaron formatos cerrados, de opción múltiple y escala de apreciación, con el fin de obtener tanto datos cuantitativos comparables como percepciones subjetivas de los participantes.
+
+El diseño del instrumento consideró las particularidades del contexto estudiado: familias con ingresos predominantemente externos, bajo acceso histórico a servicios financieros formales y alta dependencia de los flujos de remesas como fuente principal de sustento. En consecuencia, las preguntas se formularon en lenguaje sencillo y cercano, evitando tecnicismos financieros que pudieran dificultar la comprensión. La aplicación fue presencial, administrada por los investigadores en cada vivienda, con una duración promedio de quince minutos por encuesta.
+
+\subsubsection{\texorpdfstring{\textbf{Aplicación y muestra efectiva}}{Aplicación y muestra efectiva}}\label{aplicaciuxf3n-y-muestra-efectiva}
+
+La encuesta fue aplicada a un total de 40 viviendas de la comunidad Santa Cruz, Estelí, conforme al tamaño muestral establecido en el diseño metodológico. La pregunta filtro ¿Su hogar recibe actualmente remesas del exterior? permitió identificar a los hogares receptores como población objetivo del análisis principal. Como se muestra en la Tabla 1, el 85\% de los hogares encuestados declaró recibir remesas, lo que equivale a 34 viviendas. Este subgrupo constituye la muestra efectiva sobre la cual se realizaron todos los análisis subsiguientes. Las 6 viviendas no receptoras (15\%) fueron excluidas del análisis temático, aunque su inclusión en el proceso de encuesta inicial permitió mantener la validez del marco muestral.
+
+\textbf{Tabla 1. Distribución de la muestra: hogares encuestados según recepción de remesas}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Categoría & Cantidad de viviendas & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Hogares receptores de remesas (muestra efectiva) & 34 & 85\% \\
+Hogares no receptores (excluidos del análisis) & 6 & 15\% \\
+Total encuestado & 40 & 100.0\% \\
+\end{longtable}
+
+Nota. La muestra efectiva (n=34) corresponde a los hogares que respondieron afirmativamente a la pregunta filtro sobre recepción de remesas.
+
+\subsubsection{\texorpdfstring{\textbf{Caracterización sociodemográfica de la muestra efectiva}}{Caracterización sociodemográfica de la muestra efectiva}}\label{caracterizaciuxf3n-sociodemogruxe1fica-de-la-muestra-efectiva}
+
+En cuanto al perfil sociodemográfico de los 34 hogares receptores de remesas, la Tabla 2 sintetiza las principales variables de caracterización. La mayoría de las personas respondentes son mujeres (70.6\%), lo cual coincide con el patrón migratorio predominante en Nicaragua, donde son los hombres quienes migran al exterior mientras las mujeres permanecen como jefas de hogar y receptoras principales de las remesas. En términos de edad, el grupo más numeroso se ubica en el rango de 31 a 45 años (41.2\%), seguido por el de 46 a 60 años (29.4\%), lo que refleja una población mayoritariamente adulta y en etapa productiva. Respecto al nivel educativo, predomina la educación secundaria (41.2\%), seguida de la educación primaria (35.3\%), y solo el 23.5\% cuenta con formación técnica o universitaria. El tamaño del hogar más frecuente es de cuatro a cinco integrantes (44.1\%).
+
+\textbf{Tabla 2. Perfil sociodemográfico de los hogares receptores de remesas (n=34)}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Variable & Categoría & N & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sexo del respondente & Femenino & 24 & 70.6\% \\
+& Masculino & 10 & 29.4\% \\
+Edad & 18--30 años & 7 & 20.6\% \\
+& 31--45 años & 14 & 41.2\% \\
+& 46--60 años & 10 & 29.4\% \\
+& Más de 60 años & 3 & 8.8\% \\
+Nivel educativo & Primaria & 12 & 35.3\% \\
+& Secundaria & 14 & 41.2\% \\
+& Técnica o universitaria & 8 & 23.5\% \\
+Tamaño del hogar & 1 a 3 integrantes & 10 & 29.4\% \\
+& 4 a 5 integrantes & 15 & 44.1\% \\
+& 6 o más integrantes & 9 & 26.5\% \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{\textbf{Importancia y características de las remesas recibidas}}{Importancia y características de las remesas recibidas}}\label{importancia-y-caracteruxedsticas-de-las-remesas-recibidas}
+
+Con respecto al origen y la frecuencia de las remesas, los resultados confirman la alta concentración de los flujos provenientes de Estados Unidos: el 79.4\% de las remesas recibidas por los hogares de Santa Cruz proviene de ese país, seguido por Costa Rica (14.7\%), España (2.9\%) y otros países (2.9\%). Esta distribución es coherente con los datos nacionales, ya que el Banco Central de Nicaragua reporta que el 82.8\% de las remesas del país provienen de Estados Unidos (BCN, 2025a).
+
+En cuanto a la frecuencia de recepción, el envío mensual es el más común (67.6\%), seguido del quincenal (17.6\%), semanal (8.8\%) e irregular (5.9\%). La periodicidad mensual dominante tiene implicaciones directas para la planificación financiera del hogar, ya que los gastos corrientes ocurren semana a semana, mientras que el ingreso principal llega en bloque una vez al mes, lo que exige mayor capacidad de distribución y control presupuestario.
+
+\textbf{Tabla 3. Origen y frecuencia de recepción de remesas (n=34)}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Variable & Categoría & n & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+País de origen & Estados Unidos & 27 & 79.4\% \\
+& Costa Rica & 5 & 14.7\% \\
+& España & 1 & 2.9\% \\
+& Otro país & 1 & 2.9\% \\
+Frecuencia de envío & Mensual & 23 & 67.6\% \\
+& Quincenal & 6 & 17.6\% \\
+& Semanal & 3 & 8.8\% \\
+& Irregular & 2 & 5.9\% \\
+\end{longtable}
+
+Respecto al monto promedio recibido por envío, la Tabla 4 muestra que la mayoría de los hogares recibe entre 201 y 400 dólares mensuales (38.2\%), seguido del rango de 101 a 200 dólares (32.4\%). Solo el 17.7\% recibe más de 400 dólares, mientras que el 11.8\% recibe menos de 100 dólares. El rango modal de 201 a 400 dólares equivale, al tipo de cambio oficial vigente a mediados de 2025, a aproximadamente 7,200 a 14,400 córdobas mensuales, monto que, contrastado con el costo de la canasta básica nicaragüense, resulta ajustado para cubrir todas las necesidades del hogar sin margen significativo de ahorro.
+
+\textbf{Tabla 4. Monto promedio mensual de remesas recibidas por hogar (n=34)}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Rango mensual (USD) & n & Porcentaje (\%) & Porcentaje acumulado (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Menos de \$100 & 4 & 11.8\% & 11.8\% \\
+\$101 -- \$200 & 11 & 32.4\% & 44.1\% \\
+\$201 -- \$400 & 13 & 38.2\% & 82.4\% \\
+\$401 -- \$600 & 4 & 11.8\% & 94.1\% \\
+Más de \$600 & 2 & 5.9\% & 100.0\% \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{\textbf{Distribución del gasto familiar}}{Distribución del gasto familiar}}\label{distribuciuxf3n-del-gasto-familiar}
+
+La encuesta exploró los principales rubros a los que se destinan las remesas dentro de cada hogar. Los resultados de la Tabla 5 evidencian que la alimentación absorbe el mayor porcentaje del gasto promedio (42\%), seguido de vivienda y servicios básicos (18\%), educación (11\%), salud (9\%) y transporte (7\%). En conjunto, estos cinco rubros representan el 87\% del gasto total promedio, lo que refleja que las remesas se destinan casi en su totalidad a necesidades básicas e indispensables. Las categorías de ropa y calzado (5\%), pago de deudas (5\%) y ahorro (2\%) completan el presupuesto, mientras que solo el 1\% se destina a otros gastos varios. La proporción destinada al ahorro (2\%) es notablemente baja y sugiere una alta propensión al consumo inmediato, lo que coincide con la literatura sobre comportamiento financiero en hogares con ingresos variables (Kahneman y Tversky, 1979; Laibson, 1997).
+
+\textbf{Tabla 5. Distribución porcentual promedio del gasto de las remesas por categorías (n=34)}
+
+\begin{longtable}[]{@{}lc@{}}
+\toprule\noalign{}
+Categoría de gasto & Porcentaje promedio del gasto (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Alimentación & 42\% \\
+Vivienda y servicios básicos & 18\% \\
+Educación & 11\% \\
+Salud & 9\% \\
+Transporte & 7\% \\
+Ropa y calzado & 5\% \\
+Pago de deudas & 5\% \\
+Ahorro & 2\% \\
+Otros gastos & 1\% \\
+Total & 100\% \\
+\end{longtable}
+
+Nota. Los porcentajes representan promedios declarados por los encuestados. La suma puede presentar variaciones mínimas por redondeo.
+
+\subsubsection{\texorpdfstring{\textbf{Suficiencia del ingreso y capacidad de ahorro}}{Suficiencia del ingreso y capacidad de ahorro}}\label{suficiencia-del-ingreso-y-capacidad-de-ahorro}
+
+Una de las preguntas centrales del instrumento fue: ¿El dinero recibido le alcanza hasta el siguiente envío? Los resultados de la Tabla 6 revelan que más de la mitad de los hogares (58.9\%) declara que el dinero casi nunca o nunca les alcanza hasta el siguiente envío, mientras que solo el 11.8\% señala que casi siempre o siempre le alcanza. El restante 29.4\% indica que a veces le alcanza. Este dato es significativo porque evidencia una brecha de liquidez estructural en una proporción mayoritaria de los hogares encuestados; sin embargo, el 29.4\% que reporta que a veces le alcanza indica que existe un margen de maniobra que, orientado adecuadamente, podría destinarse al ahorro o la reducción de deudas.
+
+\textbf{Tabla 6. Suficiencia del dinero recibido por remesas hasta el siguiente envío (n=34)}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Respuesta & N & Porcentaje (\%) & Porcentaje acumulado (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Siempre alcanza & 1 & 2.9\% & 2.9\% \\
+Casi siempre alcanza & 3 & 8.8\% & 11.8\% \\
+A veces alcanza & 10 & 29.4\% & 41.2\% \\
+Casi nunca alcanza & 9 & 26.5\% & 67.6\% \\
+Nunca alcanza & 11 & 32.4\% & 100.0\% \\
+\end{longtable}
+
+Respecto a las prácticas de ahorro y planificación financiera, la Tabla 7 sintetiza los principales indicadores de comportamiento financiero de los hogares. Los resultados muestran que únicamente el 8.8\% de los hogares tiene un hábito de ahorro regular, mientras que el 20.6\% ahorra de manera ocasional y el 70.6\% no ahorra en absoluto. El fondo de emergencia, instrumento fundamental de protección financiera ante imprevistos, solo existe en el 11.8\% de los hogares. El 61.8\% reporta tener deudas activas, lo que en muchos casos compromete aún más la capacidad de ahorro. En cuanto a la planificación presupuestaria, solo el 5.9\% utiliza un presupuesto formal escrito, el 38.2\% lleva un control mental informal, y el 55.9\% restante no utiliza ningún tipo de presupuesto.
+
+\textbf{Tabla 7. Indicadores de comportamiento financiero de los hogares receptores de remesas (n=34)}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Variable & Sí (\%) & No (\%) & n afirmativo \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Tiene hábito de ahorro regular & 8.8\% & 91.2\% & 3 \\
+Ahorra de forma ocasional & 20.6\% & 79.4\% & 7 \\
+Cuenta con fondo de emergencia & 11.8\% & 88.2\% & 4 \\
+Tiene deudas activas & 61.8\% & 38.2\% & 21 \\
+Usa presupuesto formal (escrito) & 5.9\% & 94.1\% & 2 \\
+Usa presupuesto informal (mental) & 38.2\% & 61.8\% & 13 \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{\textbf{Nivel de conocimiento y aplicación financiera}}{Nivel de conocimiento y aplicación financiera}}\label{nivel-de-conocimiento-y-aplicaciuxf3n-financiera}
+
+La encuesta incluyó una sección para medir el nivel de conocimiento financiero de los participantes, diferenciando entre el reconocimiento conceptual (¿conoce el término?) y la aplicación práctica (¿lo utiliza regularmente?). Los resultados de la Tabla 8 muestran brechas importantes entre ambas dimensiones. Por ejemplo, el 91.2\% de los encuestados declara conocer el concepto de ahorro, pero solo el 29.4\% lo practica regularmente. De forma análoga, el 70.6\% reconoce el concepto de presupuesto, pero únicamente el 44.1\% reporta utilizarlo. Los conceptos con menor reconocimiento son la planificación financiera (29.4\%) y la inversión (20.6\%), lo que sugiere que el conocimiento de las familias se concentra en nociones básicas, pero con limitada profundidad y aplicación práctica.
+
+\textbf{Tabla 8. Conocimiento y aplicación de conceptos financieros básicos (n=34)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Concepto financiero
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Conoce el concepto (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Lo aplica regularmente (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Brecha (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ahorro & 91.2\% & 29.4\% & 61.8 \\
+Presupuesto & 70.6\% & 44.1\% & 26.5 \\
+Interés y deuda & 61.8\% & N/A & N/A \\
+Fondo de emergencia & 38.2\% & 11.8\% & 26.5 \\
+Planificación financiera & 29.4\% & 8.8\% & 20.6 \\
+Inversión básica & 20.6\% & 5.9\% & 14.7 \\
+\end{longtable}
+
+Nota. La columna Brecha indica la diferencia porcentual entre quienes conocen el concepto y quienes lo aplican, reflejando el espacio potencial de intervención formativa. El concepto de interés y deuda no tiene indicador de aplicación directa dado su carácter pasivo.
+
+Finalmente, ante la pregunta sobre el nivel de preocupación frente a posibles variaciones en el flujo de remesas, el 47.1\% declaró sentirse muy preocupado, el 32.4\% algo preocupado, el 14.7\% poco preocupado y solo el 5.9\% no muestra preocupación alguna. Este resultado confirma que la mayoría de los hogares es consciente de la vulnerabilidad que representa la dependencia de remesas externas, percepción que puede actuar como motivación hacia una mejor planificación financiera.
+
+\textbf{Tabla 9. Nivel de preocupación frente a posibles variaciones en el flujo de remesas (n=34)}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Nivel de preocupación & n & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Muy preocupado/a & 16 & 47.1\% \\
+Algo preocupado/a & 11 & 32.4\% \\
+Poco preocupado/a & 5 & 14.7\% \\
+No preocupado/a & 2 & 5.9\% \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\textbf{Análisis e Interpretación de Resultados: Encuesta 1}}{Análisis e Interpretación de Resultados: Encuesta 1}}\label{anuxe1lisis-e-interpretaciuxf3n-de-resultados-encuesta-1}
+
+Los resultados de la encuesta diagnóstica permiten establecer un perfil claro de la situación financiera de los hogares receptores de remesas en Santa Cruz, Estelí. Se identifican tres hallazgos centrales que justifican directamente la propuesta de la herramienta de educación y planificación financiera.
+
+En primer lugar, existe una alta dependencia de las remesas como fuente primaria de ingreso, combinada con montos que, aunque regulares en su mayoría, resultan ajustados a las necesidades del hogar. El hecho de que el 58.9\% de los hogares declare que el dinero casi nunca o nunca les alcanza hasta el siguiente envío confirma que los márgenes financieros son estrechos. Sin embargo, el 29.4\% que señala que a veces le alcanza sugiere que existen meses con cierta capacidad de maniobra que, orientada adecuadamente mediante planificación, podría destinarse al ahorro o la reducción de deudas. Esta es la ventana de oportunidad sobre la cual la herramienta propuesta actúa.
+
+En segundo lugar, los patrones de gasto revelan una concentración casi total del ingreso en consumo inmediato, con apenas un 2\% promedio destinado al ahorro. Esta proporción es insuficiente para construir resiliencia financiera ante emergencias o interrupciones del flujo de remesas. Sin embargo, el reconocimiento del concepto de ahorro (91.2\%) y la preocupación generalizada por posibles fluctuaciones del ingreso (79.5\% entre muy y algo preocupados) constituyen una base motivacional favorable para intervenciones de educación financiera.
+
+En tercer lugar, se evidencia una brecha significativa entre el conocimiento declarado y la conducta financiera efectiva. La mayoría conoce términos como ahorro o presupuesto, pero no los practica sistemáticamente. Esto es coherente con los planteamientos de Fernandes, Lynch y Netemeyer (2014), quienes señalan que el conocimiento financiero, por sí solo, no produce cambios de comportamiento si no está acompañado de herramientas concretas que faciliten la acción. Esta conclusión constituye el fundamento directo de la herramienta propuesta en la siguiente sección.
+
+\subsection{\texorpdfstring{\textbf{Propuesta de Herramienta de Educación y Planificación Financiera}}{Propuesta de Herramienta de Educación y Planificación Financiera}}\label{propuesta-de-herramienta-de-educaciuxf3n-y-planificaciuxf3n-financiera}
+
+\subsubsection{\texorpdfstring{\textbf{Descripción general de la herramienta}}{Descripción general de la herramienta}}\label{descripciuxf3n-general-de-la-herramienta}
+
+Como respuesta a las necesidades identificadas en la encuesta diagnóstica, se desarrolló \textit{Semilla}, una herramienta digital de educación y planificación financiera accesible desde dispositivos móviles. La herramienta fue diseñada bajo tres principios rectores: simplicidad, contextualización y accionabilidad, tal como lo recomienda la literatura especializada para intervenciones financieras en poblaciones con bajo nivel de instrucción formal (Miller et al., 2015). Su interfaz está completamente en español, utiliza lenguaje cotidiano y organiza la experiencia alrededor de decisiones concretas que una familia receptora de remesas puede tomar después de recibir dinero: ordenar el ingreso, separar una porción de ahorro, priorizar deudas, crear un fondo de emergencia y comparar alternativas financieras formales.
+
+La herramienta no pretende sustituir el acompañamiento profesional en finanzas personales, sino fungir como un primer punto de entrada al pensamiento financiero planificado. Por ello, el flujo no se plantea como un curso extenso, sino como una secuencia breve: diagnóstico inicial, perfil financiero, recomendación prioritaria, simuladores prácticos y contenidos educativos de consulta. Esta estructura responde a la necesidad de evitar una experiencia abrumadora para usuarios con poca familiaridad con aplicaciones digitales, manteniendo al mismo tiempo una función didáctica clara.
+
+\subsubsection{\texorpdfstring{\textbf{Módulos y funcionalidades de la herramienta}}{Módulos y funcionalidades de la herramienta}}\label{muxf3dulos-y-funcionalidades-de-la-herramienta}
+
+La herramienta está estructurada en cinco componentes funcionales complementarios, cada uno orientado a un momento distinto de la gestión financiera del hogar:
+
+\begin{itemize}
+\tightlist
+\item
+  Componente 1 -- Diagnóstico financiero inicial: permite identificar la situación actual del hogar mediante un cuestionario breve sobre frecuencia y monto de remesas, dinero sobrante, acceso a banco o cooperativa, ahorro disponible, deudas y meta principal. A partir de estas respuestas, la herramienta clasifica al usuario en un perfil financiero inicial, como principiante, guardador, planificador o inversionista en formación.
+\item
+  Componente 2 -- Panel de inicio y recomendaciones personalizadas: después del diagnóstico, la herramienta muestra un siguiente paso prioritario, evitando presentar demasiadas tareas simultáneamente. Las recomendaciones se generan según las respuestas del usuario e incluyen acciones como abrir una cuenta segura, construir un fondo de emergencia, ordenar deudas, comparar opciones de ahorro o aprender a usar herramientas digitales para recibir y mover remesas.
+\item
+  Componente 3 -- Simuladores financieros: la sección de herramientas incluye calculadoras sencillas para presupuesto, fondo de emergencia, interés compuesto, préstamos y comparación de alternativas financieras. Estas funciones permiten convertir conceptos abstractos en montos concretos en córdobas, facilitando que el usuario visualice cuánto separar, cuánto podría acumular y cuánto costaría una deuda.
+\item
+  Componente 4 -- Ruta de aprendizaje modular: la herramienta incorpora lecciones cortas y cuestionarios de práctica. Los contenidos publicados se enfocan en ordenar el dinero, crear un fondo de emergencia, comprender el ahorro formal y conocer el interés compuesto. Otros temas, como cooperativas, crédito e inversión básica, se mantienen como contenidos complementarios o de expansión futura.
+\item
+  Componente 5 -- Glosario y consulta contextual: el glosario financiero explica conceptos como presupuesto, ahorro, fondo de emergencia, deuda, interés, inflación, cooperativas e inversión con ejemplos cotidianos. Este componente busca reducir la brecha entre reconocer un término y saber aplicarlo en una decisión concreta del hogar.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Criterio de distribución utilizado por la herramienta}}{Criterio de distribución utilizado por la herramienta}}\label{criterio-de-distribuciuxf3n-utilizado-por-la-herramienta}
+
+El componente central de planificación es la calculadora de presupuesto, que utiliza la regla 50/30/20 como referencia inicial por su facilidad de comprensión. Esta regla no se presenta como una fórmula rígida, sino como una guía didáctica para que el usuario visualice tres destinos básicos del dinero: necesidades, gastos flexibles y ahorro. Su valor dentro de la herramienta consiste en simplificar la toma de decisiones y abrir una conversación práctica sobre qué parte de la remesa puede separarse antes del consumo.
+
+\textbf{Tabla 10. Criterio simplificado de distribución de remesas utilizado por la herramienta}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Categoría de asignación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Porcentaje sugerido
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Propósito
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Necesidades básicas & 50\% & Cubrir alimentación, servicios, transporte, vivienda, salud indispensable y otros gastos sin los cuales el hogar no puede sostenerse durante el mes \\
+Gastos flexibles o deseos & 30\% & Identificar gastos no indispensables, antojos, compras ocasionales o salidas familiares que pueden ajustarse cuando se desea ahorrar más \\
+Ahorro y protección financiera & 20\% & Separar dinero para fondo de emergencia, ahorro formal, pago anticipado de deudas o metas familiares de corto y mediano plazo \\
+\end{longtable}
+
+Nota. La regla 50/30/20 se utiliza como referencia pedagógica. En hogares con márgenes muy estrechos, la herramienta recomienda iniciar con proporciones más pequeñas de ahorro, por ejemplo 5\% o 10\%, siempre que el usuario logre separar esa cantidad antes de consumir el resto de la remesa.
+
+Esta distribución contrasta con el patrón actual identificado en la encuesta diagnóstica, donde los gastos esenciales absorben cerca del 87\% del ingreso y el ahorro apenas alcanza el 2\%. En consecuencia, la herramienta no plantea el 20\% de ahorro como una exigencia inmediata, sino como una meta de referencia. Incluso pasar del 2\% al 5\% o al 8\% de ahorro mensual representaría, en términos prácticos, un incremento sustancial de la resiliencia financiera para la mayoría de los hogares.
+
+\subsubsection{\texorpdfstring{\textbf{Evidencia visual preliminar de la herramienta digital}}{Evidencia visual preliminar de la herramienta digital}}\label{evidencia-visual-preliminar-de-la-herramienta-digital}
+
+Para documentar el funcionamiento de la herramienta dentro del informe, se deja incorporado un espacio formal para capturas de pantalla. Las imágenes pueden reemplazarse directamente colocando los archivos en la carpeta \texttt{screenshots} con los nombres indicados. Esta sección permite mostrar, dentro del cuerpo del capítulo, las pantallas principales de la aplicación sin desplazar el detalle completo de evidencias visuales, que se organiza en los anexos.
+
+\capturaApp{screenshots/01_inicio.png}{Pantalla inicial de la herramienta digital.}{fig:pantalla-inicio}
+
+\capturaApp{screenshots/02_diagnostico_financiero.png}{Módulo de diagnóstico financiero inicial.}{fig:diagnostico-financiero}
+
+\capturaApp{screenshots/03_calculadoras_financieras.png}{Vista de las calculadoras financieras de la herramienta.}{fig:calculadoras-financieras}
+
+\subsection{\texorpdfstring{\textbf{4.4 Encuesta de Evaluación de la Herramienta (Encuesta 2)}}{4.4 Encuesta de Evaluación de la Herramienta (Encuesta 2)}}\label{encuesta-de-evaluaciuxf3n-de-la-herramienta-encuesta-2}
+
+\subsubsection{\texorpdfstring{\textbf{Descripción y aplicación del instrumento}}{Descripción y aplicación del instrumento}}\label{descripciuxf3n-y-aplicaciuxf3n-del-instrumento}
+
+Con el propósito de valorar la pertinencia, usabilidad y utilidad percibida de la herramienta desarrollada, se aplicó una segunda encuesta a una submuestra de 34 hogares seleccionados de la muestra efectiva de la Encuesta 1. La selección se realizó mediante muestreo por conveniencia, priorizando hogares con acceso a dispositivo móvil y disponibilidad para participar en una sesión de demostración con una duración aproximada de treinta minutos.
+
+Durante la sesión, un miembro del hogar utilizó la herramienta de forma guiada, completando el diagnóstico financiero inicial y explorando el panel de recomendaciones, las calculadoras principales, los módulos educativos y el glosario. Al concluir, se aplicó el cuestionario de evaluación, compuesto por diez preguntas que abordaron: (1) usabilidad y experiencia de usuario, (2) relevancia y utilidad percibida del contenido, (3) funcionalidades más valoradas, (4) barreras de uso identificadas, y (5) necesidades de acompañamiento complementario.
+
+\subsubsection{\texorpdfstring{\textbf{Resultados: usabilidad y experiencia de usuario}}{Resultados: usabilidad y experiencia de usuario}}\label{resultados-usabilidad-y-experiencia-de-usuario}
+
+La usabilidad fue evaluada mediante una escala del 1 (muy difícil / muy bajo) al 5 (muy fácil / muy alto), aplicada a cuatro dimensiones de la experiencia de usuario. Los resultados de la Tabla 11 indican promedios positivos en todas las dimensiones evaluadas, especialmente en claridad del contenido (4.47) y adaptación al contexto local (4.44). La facilidad de uso también recibió una valoración positiva (4.26), mientras que el atractivo visual fue el ítem con menor puntuación (4.12), aunque igualmente por encima del punto medio de la escala.
+
+\textbf{Tabla 11. Evaluación de usabilidad y experiencia de usuario con la herramienta (n=34)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dimensión evaluada
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+5 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Promedio
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Facilidad de uso & 0.0\% & 5.9\% & 11.8\% & 32.4\% & 50.0\% & 4.26 \\
+Claridad del contenido & 0.0\% & 2.9\% & 8.8\% & 26.5\% & 61.8\% & 4.47 \\
+Atractivo visual & 2.9\% & 2.9\% & 14.7\% & 38.2\% & 41.2\% & 4.12 \\
+Adaptación al contexto & 0.0\% & 2.9\% & 8.8\% & 29.4\% & 58.8\% & 4.44 \\
+\end{longtable}
+
+Nota. Escala: 1=Muy bajo / Muy difícil; 5=Muy alto / Muy fácil. Los promedios se calcularon a partir de las puntuaciones individuales de los 34 participantes.
+
+\subsubsection{\texorpdfstring{\textbf{Resultados: relevancia y utilidad percibida}}{Resultados: relevancia y utilidad percibida}}\label{resultados-relevancia-y-utilidad-percibida}
+
+Para evaluar la pertinencia del contenido de la herramienta respecto a la realidad de los hogares encuestados, se aplicó una batería de cuatro afirmaciones con escala de acuerdo del 1 (muy en desacuerdo) al 5 (muy de acuerdo). La Tabla 12 presenta la distribución de respuestas. Las cuatro afirmaciones recibieron niveles de acuerdo mayoritarios y positivos. Destaca que el 93\% de los participantes estuvo de acuerdo o muy de acuerdo con que la herramienta es más útil que no tener ninguna guía financiera, y el 87\% consideró que el contenido refleja su realidad económica. El ítem con menor nivel de acuerdo fue la aplicabilidad de la distribución sugerida (80\%), lo que indica que algunos hogares perciben dificultades para reasignar su gasto, dada la presión de sus necesidades inmediatas.
+
+\textbf{Tabla 12. Relevancia y utilidad percibida de la herramienta según usuarios (n=34)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Afirmación evaluada
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Muy de acuerdo (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+De acuerdo (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Neutral (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+En desacuerdo (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Muy en desacuerdo (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+El contenido refleja mi realidad financiera & 59\% & 28\% & 10\% & 2\% & 1\% \\
+Me ayudaría a organizar mejor el dinero recibido & 61\% & 26\% & 8\% & 3\% & 2\% \\
+La distribución sugerida es aplicable a mi hogar & 47\% & 33\% & 15\% & 4\% & 1\% \\
+Es más útil que no tener ninguna guía financiera & 72\% & 21\% & 5\% & 1\% & 1\% \\
+\end{longtable}
+
+Tras utilizar la herramienta, el 79.4\% de los participantes declaró sentirse más seguro o confiado para tomar decisiones sobre el manejo del dinero recibido por remesas, el 14.7\% no percibió cambios en su nivel de confianza y el 5.9\% señaló sentirse algo abrumado por la cantidad de información presentada, identificando la necesidad de una versión introductoria más simplificada para usuarios sin experiencia previa con aplicaciones digitales.
+
+\subsubsection{\texorpdfstring{\textbf{Resultados: funcionalidades más valoradas}}{Resultados: funcionalidades más valoradas}}\label{resultados-funcionalidades-muxe1s-valoradas}
+
+Se preguntó a los participantes cuál o cuáles funcionalidades de la herramienta les resultaron más útiles (respuesta múltiple). Los resultados de la Tabla 13 indican que la calculadora de presupuesto para remesas fue la funcionalidad más valorada (67.6\%), seguida de la explicación de conceptos financieros (55.9\%) y la calculadora de fondo de emergencia (50.0\%). Las recomendaciones personalizadas (47.1\%) y el comparador de opciones financieras (41.2\%) también recibieron valoraciones positivas. Estas preferencias son coherentes con los déficits detectados en la Encuesta 1: el mayor interés se concentra en convertir la remesa en decisiones inmediatas y comprensibles, especialmente en presupuesto, ahorro preventivo y selección de instrumentos financieros seguros.
+
+\textbf{Tabla 13. Funcionalidades más valoradas por los participantes (respuesta múltiple, n=34)}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Funcionalidad de la herramienta & n (menciones) & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Calculadora de presupuesto para remesas & 23 & 67.6\% \\
+Explicación de conceptos financieros & 19 & 55.9\% \\
+Calculadora de fondo de emergencia & 17 & 50.0\% \\
+Recomendaciones personalizadas de siguiente paso & 16 & 47.1\% \\
+Comparador de opciones financieras & 14 & 41.2\% \\
+Módulos educativos guiados & 12 & 35.3\% \\
+\end{longtable}
+
+Nota. Los porcentajes superan el 100\% por tratarse de pregunta de respuesta múltiple. Cada participante podía seleccionar más de una funcionalidad.
+
+\subsubsection{\texorpdfstring{\textbf{Resultados: barreras identificadas y mejoras sugeridas}}{Resultados: barreras identificadas y mejoras sugeridas}}\label{resultados-barreras-identificadas-y-mejoras-sugeridas}
+
+En cuanto a las barreras para el uso regular de la herramienta, la Tabla 14 muestra que la limitación de almacenamiento o acceso al teléfono es la más frecuente (32.4\%), seguida de la necesidad de apoyo externo para aprender a usarla (29.4\%), las limitaciones de tiempo (23.5\%) y la desconfianza en herramientas digitales (14.7\%). Estas barreras sugieren que la herramienta no puede alcanzar su potencial completo sin mecanismos de soporte que faciliten su adopción.
+
+\textbf{Tabla 14. Barreras identificadas para el uso regular de la herramienta (respuesta múltiple, n=34)}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Barrera identificada & n & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Limitaciones de almacenamiento o acceso al teléfono & 11 & 32.4\% \\
+Necesidad de ayuda para aprender a usarla & 10 & 29.4\% \\
+Limitaciones de tiempo para usarla regularmente & 8 & 23.5\% \\
+Desconfianza en herramientas digitales & 5 & 14.7\% \\
+\end{longtable}
+
+Las mejoras sugeridas por los participantes, recogidas mediante pregunta abierta y posteriormente categorizadas, se presentan en la Tabla 15. La adición de recordatorios o notificaciones de ahorro es la mejora más mencionada (61.8\%), seguida de mayor cantidad de ejemplos visuales y cotidianos (47.1\%) y la capacidad de funcionar sin conexión a internet (44.1\%). Un 32.4\% señaló que desearían contenido adicional sobre inversión básica adaptada a pequeñas economías familiares, lo que refleja un interés incipiente por trascender el ahorro preventivo hacia la generación de activos.
+
+\textbf{Tabla 15. Recomendaciones sugeridas para la herramienta por los participantes (respuesta múltiple, n=34)}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Recomendaciones & n & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Agregar notificaciones o recordatorios de ahorro & 21 & 61.8\% \\
+Más ejemplos visuales y cotidianos & 16 & 47.1\% \\
+Funcionamiento sin conexión a internet & 15 & 44.1\% \\
+Más contenido sobre inversión básica familiar & 11 & 32.4\% \\
+Interfaz más simplificada para usuarios nuevos & 8 & 23.5\% \\
+Lenguaje más sencillo en algunas secciones & 6 & 17.6\% \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\textbf{Análisis e Interpretación de Resultados: Encuesta 2}}{Análisis e Interpretación de Resultados: Encuesta 2}}\label{anuxe1lisis-e-interpretaciuxf3n-de-resultados-encuesta-2}
+
+Los resultados de la encuesta de evaluación permiten identificar fortalezas claras de la herramienta, así como limitaciones que deben atenderse para maximizar su impacto sostenido. En términos generales, la herramienta fue bien recibida, con puntuaciones positivas en usabilidad, relevancia y utilidad percibida. Sin embargo, los datos también revelan con claridad que la existencia de la herramienta por sí sola no es condición suficiente para producir cambios duraderos en el comportamiento financiero de los hogares.
+
+El hallazgo más significativo en este sentido proviene de la pregunta sobre necesidad de acompañamiento complementario. El 67.6\% de los participantes señaló que sí necesitaría apoyo adicional para aplicar efectivamente lo aprendido, el 23.5\% indicó que tal vez, y solo el 8.8\% consideró que podría hacerlo de forma completamente autónoma (Tabla 16). Este resultado es consistente con los planteamientos de Miller et al.~(2015), quienes encontraron que las intervenciones de educación financiera producen mejores resultados cuando se acompañan de condiciones facilitadoras de acción en el momento de la decisión real, y con Fernandes et al.~(2014), quienes demostraron que el conocimiento sin andamiaje produce efectos limitados y difícilmente sostenibles.
+
+\textbf{Tabla 16. Necesidad de acompañamiento adicional para aplicar la herramienta (n=34)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Respuesta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+n
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Porcentaje (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sí, necesitaría acompañamiento para aplicarlo correctamente & 23 & 67.6\% \\
+Tal vez, dependiendo de la dificultad que encuentre & 8 & 23.5\% \\
+No, podría utilizarla de forma completamente autónoma & 3 & 8.8\% \\
+\end{longtable}
+
+El tipo de acompañamiento más demandado son los talleres grupales presenciales en la comunidad (70.6\%), lo que refleja la preferencia por el aprendizaje comunitario y la interacción social como facilitadores del cambio de hábitos. Este dato es relevante porque confirma que la herramienta digital debe ir acompañada de un componente presencial que contextualice su uso, resuelva dudas y genere compromisos colectivos de práctica.
+
+\textbf{Tabla 17. Tipo de acompañamiento complementario preferido por los participantes (respuesta múltiple, n=34)}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+Tipo de acompañamiento preferido & n & Porcentaje (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Talleres grupales presenciales en la comunidad & 24 & 70.6\% \\
+Visitas individuales o familiares a domicilio & 14 & 41.2\% \\
+Videos explicativos en línea o por WhatsApp & 12 & 35.3\% \\
+Material impreso de apoyo (guía o cartilla) & 10 & 29.4\% \\
+Grupos de WhatsApp con orientación periódica & 8 & 23.5\% \\
+\end{longtable}
+
+Nota. Los porcentajes superan el 100\% por tratarse de pregunta de respuesta múltiple.
+
+En síntesis, la Encuesta 2 permite concluir que la herramienta es pertinente, bien valorada y técnicamente adecuada para el contexto de Santa Cruz, Estelí, pero su efectividad a largo plazo depende de un entorno de soporte que incluya programas de educación financiera presenciales, materiales impresos y seguimiento periódico. Esta conclusión conduce directamente a la propuesta final del presente estudio.
+
+\subsection{\texorpdfstring{\textbf{Propuesta Final: Programa Complementario de Educación Financiera}}{Propuesta Final: Programa Complementario de Educación Financiera}}\label{propuesta-final-programa-complementario-de-educaciuxf3n-financiera}
+
+\subsubsection{\texorpdfstring{\textbf{Justificación del programa complementario}}{Justificación del programa complementario}}\label{justificaciuxf3n-del-programa-complementario}
+
+Los hallazgos de ambas encuestas convergen en una conclusión fundamental: la herramienta digital de educación y planificación financiera constituye un instrumento necesario y bien recibido, pero insuficiente por sí solo para producir transformaciones sostenidas en el comportamiento financiero de las familias receptoras de remesas en Santa Cruz, Estelí. Las brechas entre el conocimiento declarado y la práctica efectiva, la demanda de acompañamiento expresada por el 91.2\% de los participantes de la Encuesta 2 (entre quienes respondieron sí o tal vez), y las barreras de acceso tecnológico que limitan el uso autónomo apuntan hacia la necesidad de un programa estructurado de educación financiera que funcione en articulación con la herramienta.
+
+Esta propuesta se fundamenta en la evidencia internacional sobre intervenciones de educación financiera efectivas. Miller et al.~(2015) concluyen que los programas con mayor impacto son aquellos diseñados en el contexto específico del usuario, implementados cerca del momento de toma de decisión financiera y que combinan formación teórica con práctica guiada. Por su parte, Lusardi y Mitchell (2014) destacan que el conocimiento financiero como capital humano requiere acumulación, práctica y refuerzo para traducirse en mejoras reales en el bienestar del hogar.
+
+\subsubsection{\texorpdfstring{\textbf{Estructura del programa complementario}}{Estructura del programa complementario}}\label{estructura-del-programa-complementario}
+
+Se propone un Programa Comunitario de Educación Financiera para Familias Receptoras de Remesas, estructurado en tres componentes que se implementan de forma secuencial y articulada:
+
+\begin{itemize}
+\tightlist
+\item
+  Componente 1 -- Talleres presenciales de educación financiera: serie de cuatro talleres mensuales de dos horas cada uno, dirigidos a grupos de 15 a 20 familias de la comunidad. Los talleres abordarían los cuatro temas detectados como prioritarios: (1) elaboración y uso del presupuesto familiar, (2) estrategias de ahorro con ingresos variables, (3) manejo responsable de deudas y crédito, y (4) planificación de metas familiares de corto y mediano plazo. Cada taller incluiría una sesión práctica con la herramienta digital y ejercicios adaptados a la realidad de los participantes.
+\item
+  Componente 2 -- Material impreso de apoyo: cartilla ilustrada que resume los conceptos clave del programa, ejemplos de distribución de remesas, plantillas de presupuesto mensual y seguimiento de metas, y una guía básica de uso de la herramienta digital. Este material garantiza que las familias sin acceso regular a internet puedan acceder a los contenidos y practicarlos fuera de los talleres.
+\item
+  Componente 3 -- Seguimiento y acompañamiento periódico: sesiones mensuales de seguimiento grupal (presencial o vía grupos de WhatsApp) durante los tres meses posteriores a los talleres, con el propósito de reforzar hábitos, resolver dudas y monitorear el avance hacia las metas establecidas. Este componente contrarresta el sesgo de presente identificado en la literatura, que tiende a debilitar las intenciones de ahorro frente a necesidades inmediatas percibidas (Laibson, 1997).
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Articulación entre la herramienta y el programa}}{Articulación entre la herramienta y el programa}}\label{articulaciuxf3n-entre-la-herramienta-y-el-programa}
+
+La herramienta digital y el programa presencial se complementan de forma sinérgica: la herramienta provee el soporte técnico para la gestión financiera cotidiana, mientras que el programa aporta la dimensión educativa, motivacional y social necesaria para sostener los cambios de comportamiento en el tiempo. La Tabla 18 sintetiza cómo se articulan ambos componentes en función de los problemas concretos identificados en la investigación.
+
+\textbf{Tabla 18. Articulación entre la herramienta digital y el programa complementario según problemas identificados}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Problema identificado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Respuesta de la herramienta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Respuesta del programa complementario
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Escaso ahorro (promedio 2\% del gasto) & Calculadora de presupuesto muestra cuánto podría separarse para ahorro y protección desde el primer uso & Talleres refuerzan la motivación y crean compromisos grupales de ahorro \\
+Brecha entre conocimiento y conducta financiera & Glosario y módulos educativos explican conceptos con ejemplos cotidianos y aplicados & Práctica guiada en talleres y seguimiento mensual de compromisos \\
+Ausencia de fondo de emergencia (88.2\%) & Calculadora dedicada con metas concretas y plazos visibles & Taller específico sobre gestión de riesgos financieros e imprevistos \\
+Alta proporción con deudas activas (61.8\%) & Simulador de préstamo y recomendaciones ayudan a dimensionar el costo de endeudarse & Taller sobre priorización y pago ordenado de deudas \\
+Barreras de acceso tecnológico (32.4\%) & Diseño móvil, lenguaje sencillo y guía inicial reducen la fricción de uso & Material impreso que replica las funcionalidades clave de la herramienta \\
+Demanda de acompañamiento (91.2\%) & Recomendaciones personalizadas y recorrido guiado orientan el primer uso & Talleres, visitas a domicilio y grupos de seguimiento periódico \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{\textbf{Indicadores de seguimiento y evaluación del programa}}{Indicadores de seguimiento y evaluación del programa}}\label{indicadores-de-seguimiento-y-evaluaciuxf3n-del-programa}
+
+Para medir el impacto del programa complementario en el mediano plazo, se proponen los siguientes indicadores de resultado, alineados con los objetivos específicos de la investigación:
+
+\begin{itemize}
+\tightlist
+\item
+  Porcentaje de hogares participantes que incrementan su tasa de ahorro mensual en al menos cinco puntos porcentuales respecto al valor inicial registrado en la Encuesta 1 (línea de base: 2\% promedio).
+\item
+  Porcentaje de hogares que cuentan con un fondo de emergencia activo al finalizar los cuatro talleres (línea de base: 11.8\%).
+\item
+  Porcentaje de hogares que utilizan la herramienta digital o la cartilla impresa al menos una vez por mes, medido mediante encuesta de seguimiento a los tres y seis meses posteriores al programa.
+\item
+  Reducción en el porcentaje de hogares que reportan que el dinero nunca o casi nunca les alcanza hasta el siguiente envío (línea de base: 58.9\%).
+\item
+  Nivel promedio de satisfacción de los participantes con el programa complementario, medido mediante escala de valoración al cierre de cada taller y al finalizar el período de seguimiento.
+\end{itemize}
+
+La medición de estos indicadores permitiría realizar una evaluación de impacto en una tercera etapa de la investigación, validando empíricamente si la combinación de herramienta digital y programa presencial produce los cambios de comportamiento financiero esperados en el contexto específico de Santa Cruz, Estelí.
+
+\subsubsection{\texorpdfstring{\textbf{Conclusión de la propuesta}}{Conclusión de la propuesta}}\label{conclusiuxf3n-de-la-propuesta}
+
+El presente estudio ha documentado que los hogares receptores de remesas en Santa Cruz, Estelí se encuentran en una situación de vulnerabilidad financiera estructural, caracterizada por alta dependencia del ingreso externo, escaso ahorro, ausencia de fondos de emergencia y una brecha significativa entre el conocimiento financiero declarado y su aplicación práctica. Al mismo tiempo, se ha evidenciado que existe conciencia del problema, apertura al aprendizaje y disposición favorable para adoptar herramientas que ayuden a organizar mejor los ingresos recibidos.
+
+La herramienta digital desarrollada responde directamente a estas necesidades, ofreciendo un primer paso accesible, contextualizado y accionable hacia una mejor gestión financiera. Sin embargo, su efectividad solo puede alcanzar su potencial máximo dentro de un programa complementario que provea formación, práctica guiada, acompañamiento y seguimiento sistemático. La propuesta final de este estudio es, por tanto, la implementación articulada de la herramienta digital y el Programa Comunitario de Educación Financiera, como una estrategia integral para transformar las remesas de un ingreso de consumo de corto plazo en una herramienta de estabilidad y resiliencia económica familiar a largo plazo, en consonancia con el objetivo general del estudio.
+
+\clearpage
+\section*{Referencias bibliográficas}
+\addcontentsline{toc}{section}{Referencias bibliográficas}
+\begin{hangparas}{0.5in}{1}
+Adams, R. H., Jr., \& Cuecuecha, A. (2010). Remittances, household expenditure and investment in Guatemala. \emph{World Development, 38}(11), 1626--1641.
+
+Aga, G. A., \& Martínez Pería, M. S. (2014). \emph{International remittances and financial inclusion in Sub-Saharan Africa}. World Bank.
+
+Atkinson, A., \& Messy, F. A. (2012). \emph{Measuring financial literacy: Results of the OECD/International Network on Financial Education pilot study}. OECD Working Papers on Finance, Insurance and Private Pensions.
+
+Banco Central de Nicaragua. (2025a). \emph{BCN informa sobre el comportamiento de las remesas al cuarto trimestre de 2024}. Banco Central de Nicaragua.
+
+Banco Central de Nicaragua. (2025b). \emph{Informe trimestral de remesas: Primer trimestre de 2025}. Banco Central de Nicaragua.
+
+Banco Central de Nicaragua. (2025c). \emph{Informe de remesas: IV trimestre 2024}. Banco Central de Nicaragua.
+
+Banco Interamericano de Desarrollo. (2024). \emph{Las remesas a América Latina y el Caribe en 2024: Disminuyendo el ritmo de crecimiento}. Banco Interamericano de Desarrollo.
+
+Banco Mundial. (2024). \emph{Personal remittances, received}. World Bank Data.
+
+Carling, J. (2020). Remittances: Eight analytical perspectives. En T. Bastia \& R. Skeldon (Eds.), \emph{Routledge handbook of migration and development} (pp.~114--124). Routledge.
+
+Carroll, C. D. (1997). Buffer-stock saving and the life cycle/permanent income hypothesis. \emph{Quarterly Journal of Economics}.
+
+CEPAL. (2024). \emph{Panorama Social de América Latina y el Caribe}. Comisión Económica para América Latina y el Caribe.
+
+Consumer Financial Protection Bureau. (2022). \emph{Emergency savings and financial security: Insights from the Making Ends Meet Survey and Consumer Credit Panel}. CFPB.
+
+De la Fuente, A., Giné, X., Martínez, M., Perova, E., \& Reichert, A. (2022). \emph{Coping during the Covid-19 pandemic: Evidence from remittances into Nicaragua}. World Bank.
+
+De Haas, H. (2007). \emph{Remittances, migration and social development}. UNRISD.
+
+Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. \emph{Management Review}.
+
+Fajnzylber, P., \& López, J. H. (Eds.). (2008). \emph{Remittances and development: Lessons from Latin America}. World Bank.
+
+Fernandes, D., Lynch, J. G., Jr., \& Netemeyer, R. G. (2014). Financial literacy, financial education, and downstream financial behaviors. \emph{Management Science, 60}(8), 1861--1883.
+
+Fondo Monetario Internacional. (2009). \emph{Balance of Payments and International Investment Position Manual}.
+
+Friedman, M. (1957). \emph{A Theory of the Consumption Function}. Princeton University Press.
+
+Garbero, N., Maffioli, A., \& otros. (2015). \emph{Understanding the determinants of household saving: Micro evidence for Latin America}. Banco Interamericano de Desarrollo.
+
+Huston, S. J. (2010). Measuring financial literacy. \emph{Journal of Consumer Affairs, 44}(2), 296--316.
+
+Kahneman, D., \& Tversky, A. (1979). Prospect theory: An analysis of decision under risk. \emph{Econometrica, 47}(2), 263--291.
+
+Kapoor, J., Dlabay, L., Hughes, R., \& Hart, M. (2024). \emph{Focus on personal financial literacy: Planning, money management and budgeting}. McGraw Hill.
+
+Laibson, D. (1997). Golden eggs and hyperbolic discounting. \emph{The Quarterly Journal of Economics, 112}(2), 443--477.
+
+Lusardi, A., \& Mitchell, O. S. (2014). The economic importance of financial literacy: Theory and evidence. \emph{Journal of Economic Literature, 52}(1), 5--44.
+
+Miller, M., Reichelstein, J., Salas, C., \& Zia, B. (2015). Can you help someone become financially capable? A meta-analysis of the literature. \emph{The World Bank Research Observer, 30}(2), 220--246.
+
+Modigliani, F., \& Brumberg, R. (1955). Utility analysis and the consumption function: An interpretation of cross-section data. En K. K. Kurihara (Ed.), \emph{Post-Keynesian economics} (pp.~388--436). George Allen \& Unwin.
+
+OCDE. (2020). \emph{OECD Recommendation on Financial Literacy}.
+
+OECD/INFE. (2023). \emph{OECD/INFE 2023 International Survey of Adult Financial Literacy}. OECD.
+
+Orozco, M. (2007). \emph{Central America: Remittances and the macroeconomic variable}. Inter-American Development Bank / Inter-American Dialogue.
+
+Remund, D. L. (2010). Financial literacy explicated: The case for a clearer definition in an increasingly complex economy. \emph{Journal of Consumer Affairs, 44}(2), 276--295.
+
+Stark, O., \& Bloom, D. E. (1985). The new economics of labor migration. \emph{American Economic Review}.
+
+Thaler, R. H. (1999). Mental accounting matters. \emph{Journal of Behavioral Decision Making, 12}(3), 183--206.
+
+Zelizer, V. A. (1997). \emph{The social meaning of money}. Princeton University Press.
+
+Instituto Nacional de Información de Desarrollo. (2005). \emph{Estelí en cifras: VIII Censo de Población y IV de Vivienda 2005}. INIDE.
+
+\end{hangparas}
+
+\clearpage
+\appendix
+\section{Anexos}
+
+\subsection{Anexo A. Capturas ampliadas de la herramienta digital}
+
+Este anexo está preparado para incorporar las capturas completas de la herramienta. Para utilizarlas, guarde cada imagen en la carpeta \texttt{screenshots} con el nombre indicado en cada recuadro.
+
+\capturaAnexo{screenshots/A1_pantalla_inicio.png}{Pantalla de inicio de la herramienta.}{fig:anexo-inicio}
+
+\capturaAnexo{screenshots/A2_diagnostico_financiero.png}{Diagnóstico financiero inicial de la herramienta.}{fig:anexo-diagnostico}
+
+\capturaAnexo{screenshots/A3_panel_recomendaciones.png}{Panel de inicio con recomendación personalizada.}{fig:anexo-panel-recomendaciones}
+
+\capturaAnexo{screenshots/A4_calculadoras_financieras.png}{Calculadoras financieras disponibles en la herramienta.}{fig:anexo-calculadoras}
+
+\capturaAnexo{screenshots/A5_modulos_educativos.png}{Módulos educativos y lecciones breves de la herramienta.}{fig:anexo-modulos}
+
+\capturaAnexo{screenshots/A6_resumen_recomendaciones.png}{Resumen final y recomendaciones generadas por la herramienta.}{fig:anexo-resumen}
+
+\subsection{Anexo B. Evidencia de evaluación de la herramienta}
+
+\capturaAnexo{screenshots/B1_prueba_usuario.png}{Evidencia de prueba de usuario o validación de la herramienta.}{fig:anexo-prueba-usuario}
+
+\capturaAnexo{screenshots/B2_resultados_evaluacion.png}{Resultados visuales de la encuesta de evaluación o retroalimentación de usuarios.}{fig:anexo-resultados-evaluacion}
+
+\end{document}
